@@ -1,0 +1,90 @@
+#post_show.row
+
+  
+    
+  .col-md-6
+
+    .panel.panel-default
+      .panel-heading.post_image
+        - if @post.image.present?
+          = image_tag @post.image.url
+        - if @post.image2.present?  
+          = image_tag @post.image2.url
+        - if @post.image3.present?
+          = image_tag @post.image3.url
+
+
+  .col-md-6.col-md-6-offset-2    
+    .panel.panel-default
+      .panel-body
+        %h1= @post.title
+        %p.description= @post.description
+        %p
+        
+        %p.brand
+          Brand :
+          = @post.brand
+        %p.model
+          Model :
+          = @post.model
+
+        %p.price
+          Year :
+          = @post.year
+
+        %p.price
+          Condition :
+          = @post.condition
+
+        %p.price
+          Movement :
+          = @post.movement
+
+        %p.price
+          Case Material :
+          = @post.case
+
+        %p.price
+          Dial :
+          = @post.dial
+
+        %p.price
+          Bracelet Material :
+          = @post.bracelet
+
+        %p.price
+          Functions :
+          = @post.functions
+
+        %p.price
+          Availability :
+          = @post.availability
+
+        %p.price
+          Shipping :
+          = @post.shipping
+
+        %p.price
+          %strong Price :
+          %strong 
+          = @post.price
+      
+      .panel-footer
+        .row
+          .col-md-6
+            %p.user
+              Submited by
+              = @post.user.email
+              
+          .col-md-6
+            .btn-group.pull-right
+              - if @post.user == current_user
+                = link_to "Edit", edit_post_path(@post), class: "btn btn-default"
+                = link_to 'Destroy' , @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+              = link_to 'Back', posts_path, class: "btn btn-default"
+
+  
+
+
+
+
