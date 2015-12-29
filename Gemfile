@@ -27,6 +27,8 @@ gem 'masonry-rails', '~> 0.2.4'
 gem 'money-rails'
 gem 'cocoon', '~> 1.2', '>= 1.2.6'
 
+gem 'aws-s3', '~> 0.6.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
