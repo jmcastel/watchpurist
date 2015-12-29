@@ -7,6 +7,6 @@
 			.panel-body
 				%h2= link_to post.title , post
 
-
+= will_paginate @posts , renderer: BootstrapPagination::Rails
 
 

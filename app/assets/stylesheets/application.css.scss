@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
 	background: #E9E9E9;
 }
@@ -65,6 +66,8 @@ nav {
 			margin: 0;
 	  }
 	}
+
+  
 }
 
 #edit_page {
@@ -112,4 +115,19 @@ nav {
 
 textarea {
 	min-height: 250px;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #FD0E48; // use your own color here
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #FD0E48;
+    border-color: #FD0E48;
 }
