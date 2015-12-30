@@ -8,6 +8,8 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 16)
   end
 
+  
+
   # GET /posts/1
   # GET /posts/1.json
   def show

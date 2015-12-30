@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   
   root 'posts#index'
 
+  get 'dashboard' => 'dashboard#index' 
+
 end
