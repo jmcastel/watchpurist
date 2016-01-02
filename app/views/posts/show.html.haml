@@ -73,7 +73,7 @@
         .row
           .col-md-6
             %p.user
-            
+
               Submited by
               = @post.user.pseudo 
               %br
@@ -85,12 +85,14 @@
                 = link_to 'Destroy' , @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
               = link_to 'Back', posts_path, class: "btn btn-default"
               %br
-        - if @post.user != current_user 
-          .panel-footer
-            .row
-              .text-center
-              
-                = link_to "contact seller", new_post_private_message_path(@post), class: "btn btn-success center-block"
+
+
+    - if @post.user != current_user 
+      .row
+        .panel.panel-default
+          .panel-body
+            .text-center
+              = link_to "contact seller", new_post_private_message_path(@post), class: "btn btn-success center-block"
   
 
 

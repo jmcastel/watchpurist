@@ -1,4 +1,7 @@
-%h1 My messages :
+.row	
+	.jumbotron
+		.text-center
+			.h1.center-block My messages : 
 
 - if @messages.count > 0 
 	- @messages.each do |mess|
@@ -16,5 +19,9 @@
 				%p.email
 					= mess.email		
 - else
-%h3 You don't have any message yet !
+.row	
+	.jumbotron
+		.text-center
+			%h3.center-block You don't have any message yet !
+
 = will_paginate @messages , renderer: BootstrapPagination::Rails
