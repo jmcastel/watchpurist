@@ -1,0 +1,31 @@
+.row	
+	.col-md-offset-3  
+		
+		%br
+		%br
+		- if @posts.count > 0 
+			.row
+				.col-md-offset-3
+					%h1 My watches :
+					%br
+					%br
+
+#posts.transitions-enabled
+
+	- if @posts.count > 0
+
+		
+		- @posts.each do |post|
+			.box.panel.panel-default
+				- if post.image.present?
+
+					= link_to (image_tag  post.image.url) , post
+				.panel-body
+					%h2= link_to post.title , post
+	- else 
+
+		%h2 You didn't post any watch yet !
+		%br
+		= link_to "Sell a watch", new_post_path 
+
+= will_paginate @posts , renderer: BootstrapPagination::Rails

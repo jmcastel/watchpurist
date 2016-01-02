@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230125334) do
+ActiveRecord::Schema.define(version: 20160102111815) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20151230125334) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
+  create_table "private_messages", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "email"
+    t.integer  "from_user"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -65,6 +76,7 @@ ActiveRecord::Schema.define(version: 20151230125334) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "pseudo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

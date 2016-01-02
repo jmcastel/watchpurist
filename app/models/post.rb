@@ -31,11 +31,15 @@ class Post < ActiveRecord::Base
 
 	
 
-	belongs_to :user 
+	belongs_to :user , dependent: :delete
+
+	has_many :private_messages
 
 	#monetize :price
 
 	#validates :title, :brand, :model, :price, :year, presence: true
+	validates :image, presence: true
+
 
 	
 

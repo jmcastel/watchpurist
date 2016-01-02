@@ -1,12 +1,10 @@
-class DashboardController < ApplicationController
+class MywatchesController < ApplicationController
 
 	before_action :authenticate_user!
 
 	def index
 		@posts = Post.where(user_id: current_user).order('created_at DESC').paginate(:page => params[:page], :per_page => 4)
-		@messages = PrivateMessage.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
-		 
+		
 	end
-
 
 end
