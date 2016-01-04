@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
 
-	has_attached_file :image, styles:  { medium: "300x300>", thumb: "100x100>" }
+	
+
+	has_attached_file :image, styles:  { original: {convert_options: '-auto-orient'}, medium: "300x300>", thumb: "100x100>" }
 	has_attached_file :image2, styles: { medium: "300x300>", thumb: "100x100>" }
 	has_attached_file :image3, styles: { medium: "300x300>", thumb: "100x100>" }
 
@@ -28,6 +30,10 @@ class Post < ActiveRecord::Base
 		def delete_image3
 			self.image3 = nil
 		end
+
+
+		
+
 
 	
 
