@@ -2,9 +2,9 @@ class Post < ActiveRecord::Base
 
 	
 
-	has_attached_file :image, styles:  { original: {convert_options: '-auto-orient'}, medium: "300x300>", thumb: "100x100>" }
-	has_attached_file :image2, styles: { medium: "300x300>", thumb: "100x100>" }
-	has_attached_file :image3, styles: { medium: "300x300>", thumb: "100x100>" }
+	has_attached_file :image, styles:  { original: {convert_options: '-auto-orient'}, large: "1024x1024>", medium: "300x300>", thumb: "100x100>" }
+	has_attached_file :image2, styles: { original: {convert_options: '-auto-orient'}, large: "1024x1024>", medium: "300x300>", thumb: "100x100>" }
+	has_attached_file :image3, styles: { original: {convert_options: '-auto-orient'}, large: "1024x1024>", medium: "300x300>", thumb: "100x100>" }
 
 	validates_attachment_content_type :image,  content_type: /\Aimage\/.*\Z/
 	validates_attachment_content_type :image2, content_type: /\Aimage\/.*\Z/

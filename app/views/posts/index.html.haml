@@ -4,7 +4,7 @@
 		.box.panel.panel-default
 			- if post.image.present?
 
-				= link_to (image_tag  post.image.url) , post
+				= link_to (image_tag  post.image.url(:large)) , post
 			.panel-body
 				%h2= link_to post.title , post
 

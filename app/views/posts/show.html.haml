@@ -7,11 +7,11 @@
     .panel.panel-default
       .panel-heading.post_image
         - if @post.image.present?
-          = image_tag @post.image.url
+          = image_tag @post.image.url(:large)
         - if @post.image2.present?  
-          = image_tag @post.image2.url
+          = image_tag @post.image2.url(:large)
         - if @post.image3.present?
-          = image_tag @post.image3.url
+          = image_tag @post.image3.url(:large)
 
 
   .col-md-6.col-md-6-offset-2    
