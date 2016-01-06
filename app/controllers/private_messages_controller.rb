@@ -20,6 +20,9 @@ class PrivateMessagesController < ApplicationController
 		@privatemessage.user_id = @post.user_id
 		@privatemessage.from_user = current_user.id
 		@privatemessage.email = current_user.email
+		@privatemessage.poster_email = @post.user.email 
+		@privatemessage.pseudo = @post.user.pseudo
+		@privatemessage.post_title = @post.title 
 
 		if @privatemessage.save
 			flash[:notice] = "Your message was sent successfully !"

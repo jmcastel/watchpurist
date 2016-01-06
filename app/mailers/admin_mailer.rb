@@ -8,17 +8,24 @@ class AdminMailer < ApplicationMailer
 	def new_message(privatemessage)
 
 		
+		logger.debug "new_message func started"
+		
 
 		template_name = "new-message"
 		template_content = []
 
 		message = {
-			to: [{email: "jmcastel@me.com"}],
+			to: [{email: privatemessage.poster_email}],
 			subject: "New Message",
 			merge_vars: [
-				{rcpt: "jmcastel@me.com",
+				{rcpt: privatemessage.poster_email,
 					vars: [
-						{from_user: "FROM_USER"}
+						{name: "FROM_USER" , content: privatemessage.email},
+						{name: "USER_NAME" , content: privatemessage.pseudo},
+						{name: "POST_TITLE" , content: privatemessage.post_title},
+						{name: "CONTENT" , content: privatemessage.content},
+						{name: "TITLE" , content: privatemessage.title}
+
 					]
 
 				}

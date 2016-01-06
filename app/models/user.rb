@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :post , dependent: :destroy
+  has_many :post 
 
   validates :pseudo, presence: true
 
