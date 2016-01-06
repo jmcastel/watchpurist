@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#index' 
 
-  get 'messages' => 'messages#index'
+  #get 'messages' => 'messages#index'
+  resources :messages
 
   get 'mywatches' => 'mywatches#index'
 

@@ -19,7 +19,7 @@ class PrivateMessagesController < ApplicationController
 
 		@privatemessage.user_id = @post.user_id
 		@privatemessage.from_user = current_user.id
-		@privatemessage.email = @post.user.email
+		@privatemessage.email = current_user.email
 
 		if @privatemessage.save
 			flash[:notice] = "Your message was sent successfully !"
@@ -31,7 +31,7 @@ class PrivateMessagesController < ApplicationController
 	end
 
 	def destroy
-		@mprivatemessage.destroy
+		@privatemessage.destroy
 		redirect_to root_path
 	end
 
