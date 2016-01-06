@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+#ruby '2.2.2'
 
 gem 'rails', '4.2.4'
 
@@ -35,6 +35,8 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 gem 'puma'
 gem 'newrelic_rpm'
+
+gem 'mandrill-api', '~> 1.0', '>= 1.0.53', require: "mandrill"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
