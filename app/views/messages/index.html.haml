@@ -8,32 +8,40 @@
 		.box.panel.panel-default
 			.panel-body
 				.row
-					.col-md-6
-				
-						%h3 Title :
-						%P.title
-						= mess.title
-						%br
-						%h3 Content :
-						%p.content
-						= mess.content
-					.col-md-6.text-center
+					.col-md-8
+						.col-md-6
+							%h3 Title :
+
+						.col-md-6
+							.well
+								= mess.title 
+						
+
+						.col-md-6
+							%h3 Content :
+						.col-md-6
+							.well
+								= mess.content
+
+					.col-md-4.text-center
 						- @posts.each do |post|
 							- if mess.post_id == post.id 
-								= link_to (image_tag  post.image.url(:thumb)) , post , class: 'center-block'
-								= link_to post.title ,post
+								= link_to (image_tag  post.image.url(:medium)) , post , class: 'center-block'
+								
+
+					
+
 						
 			.panel-footer
 				.row	
 					.col-md-4
-						%h5 On :
-						%p.content
-						= mess.created_at
+						%h5  #{time_ago_in_words mess.created_at} ago
+						
 					.col-md-4	
 							
-						%h5 from :
-						%p.email
-						= mess.email
+						%h5 from :#{ mess.email}
+						
+						
 
 					.col-md-4
 						
