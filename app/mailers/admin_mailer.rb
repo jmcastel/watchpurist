@@ -7,18 +7,18 @@ class AdminMailer < ApplicationMailer
 
 	def new_message(privatemessage)
 
-		@post = Post.where(id: privatemessage.user_id)
+		
 
-		template.name = "new-message"
-		template.content = []
+		template_name = "new-message"
+		template_content = []
 
 		message = {
-			to: [{email: @post.user.email}],
+			to: [{email: "jmcastel@me.com"}],
 			subject: "New Message",
 			merge_vars: [
-				{rcpt: "no-reply@watchpurist.com",
+				{rcpt: "jmcastel@me.com",
 					vars: [
-						{from_user: "FROM_USER", content: privatemessage.email}
+						{from_user: "FROM_USER"}
 					]
 
 				}
