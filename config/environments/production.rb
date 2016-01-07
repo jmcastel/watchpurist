@@ -87,7 +87,7 @@ Rails.application.configure do
 }
 #configure action mailer
 config.action_mailer.raise_delivery_errors = true
-config.action_mailer.default_url_options = {host: 'https://mighty-reef-1500.herokuapp.com'}
+config.action_mailer.default_url_options = {host: 'http://www.watchpurist.com'}
 
 
 end

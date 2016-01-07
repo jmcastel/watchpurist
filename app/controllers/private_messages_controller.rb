@@ -2,7 +2,7 @@ class PrivateMessagesController < ApplicationController
 
 	before_action :authenticate_user!
 	before_action :set_message, only: [:show, :edit, :update, :destroy]
-	#before_action :set_post
+	before_action :set_post , only: [:new, :create]
 
 	def index
 		@privatemessages = PrivateMessage.where(user_id: current_user).order('created_at DESC').paginate(:page => params[:page], :per_page => 5)

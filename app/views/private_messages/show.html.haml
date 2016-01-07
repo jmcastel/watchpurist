@@ -3,7 +3,7 @@
 	.panel-body
 		.row
 			
-			.col-md-6
+			.col-md-4
 				%h3 Title :
 
 			
@@ -11,17 +11,18 @@
 					= @privatemessage.title 
 			
 
-			.col-md-6
+			.col-md-4
 				%h3 Content :
 			
 				.well
 					= @privatemessage.content
 
-		.row
-			.col-md-12.text-center
+		
+			.col-md-4.text-center
 				- @posts.each do |post|
 					- if @privatemessage.post_id == post.id 
-						= link_to (image_tag  post.image.url(:large)) , post , class: 'center-block'
+						= link_to (image_tag  post.image.url(:medium)) , post , class: "center-block"
+		
 
 	.panel-footer
 		.row	
@@ -35,8 +36,9 @@
 				
 
 			.col-md-4
-				- @posts.each do |post|
-					= link_to 'Back', messages_path, class: "btn btn-default"
+				.btn-group.pull-right
+					- @posts.each do |post|
+						= link_to 'Back', messages_path, class: "btn btn-default"
 
 
 
