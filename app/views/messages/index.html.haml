@@ -21,7 +21,7 @@
 							%h3 Content :
 						.col-md-6
 							.well
-								= mess.content
+								= link_to "go", post_private_message_path(mess)
 
 					.col-md-4.text-center
 						- @posts.each do |post|

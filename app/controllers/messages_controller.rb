@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :set_message , only: [:show]
 
 	def index
 		
@@ -11,9 +12,19 @@ class MessagesController < ApplicationController
 	end
 
 	def destroy
-		@privatemessage.destroy
+		@message.destroy
 		redirect_to root_path
 	end
 
+	def show
+
+		
+		@posts = Post.all
+	end
+
+	private
+		def set_message
+			@message = PrivateMessage.find(params[:id])
+		end
 
 end

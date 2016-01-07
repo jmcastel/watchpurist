@@ -1,0 +1,43 @@
+
+.box.panel.panel-default
+	.panel-body
+		.row
+			
+			.col-md-6
+				%h3 Title :
+
+			
+				.well
+					= @privatemessage.title 
+			
+
+			.col-md-6
+				%h3 Content :
+			
+				.well
+					= @privatemessage.content
+
+		.row
+			.col-md-12.text-center
+				- @posts.each do |post|
+					- if @privatemessage.post_id == post.id 
+						= link_to (image_tag  post.image.url(:large)) , post , class: 'center-block'
+
+	.panel-footer
+		.row	
+			.col-md-4
+				%h4  #{time_ago_in_words @privatemessage.created_at} ago
+				
+			.col-md-4	
+					
+				%h4 from : #{ @privatemessage.email}
+				
+				
+
+			.col-md-4
+				- @posts.each do |post|
+					= link_to 'Back', messages_path, class: "btn btn-default"
+
+
+
+
