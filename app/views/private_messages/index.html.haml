@@ -5,19 +5,24 @@
 
 - if @privatemessages.count > 0 
 	- @privatemessages.each do |mess|
+
+
 		.box.panel.panel-default
 			.panel-body
 				.row
 					.col-md-8
 						- @posts.each do |post|
-							%h4 New message for your watch : #{post.title}
+
+							- if mess.post_id == post.id 
+								%h4 New message for your watch : #{post.title}
 								
 
 								
 					.col-md-4.text-center
 						- @posts.each do |post|
+							- if mess.post_id == post.id 
 							
-							= link_to "Read" , post_private_message_path(mess,post), class: "btn btn-success center-block"
+								= link_to "Read" , post_private_message_path(post,mess.id), class: "btn btn-success center-block"
 					
 
 						

@@ -37,9 +37,9 @@ class Post < ActiveRecord::Base
 
 	
 
-	belongs_to :user , dependent: :destroy
+	belongs_to :user 
+	has_many :private_messages , dependent: :destroy
 
-	has_many :private_messages
 
 	#monetize :price
 
