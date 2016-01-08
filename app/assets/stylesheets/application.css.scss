@@ -113,6 +113,17 @@ nav {
 	}
 }
 
+#index_private_message {
+	.panel-body-read {
+		padding: 10px;
+		h1 {
+			margin: 0 0 10px 0;
+		}
+		background-color: #FEE7EC ;
+		border: 1px solid #FD0E48 ;
+	}
+}
+
 textarea {
 	min-height: 250px;
 }

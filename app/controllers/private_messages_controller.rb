@@ -7,6 +7,7 @@ class PrivateMessagesController < ApplicationController
 	def index
 		@privatemessages = PrivateMessage.where(user_id: current_user).order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
 		@posts = Post.all
+		
 	end
 
 	def new
@@ -15,6 +16,8 @@ class PrivateMessagesController < ApplicationController
 
 	def show
 		@posts = Post.all
+		@post = Post.where(id: @privatemessage.post_id)
+		@privatemessage.readingmessage
 	end
 
 	def create 

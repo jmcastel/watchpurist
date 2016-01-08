@@ -37,7 +37,7 @@
 
 			.col-md-4
 				.btn-group.pull-right
-					
+					= link_to 'Destroy' , post_private_message_path(@post,@privatemessage.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
 					= link_to 'Back', messages_path, class: "btn btn-default"
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106232120) do
+ActiveRecord::Schema.define(version: 20160108085802) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160106232120) do
     t.string   "poster_email"
     t.string   "pseudo"
     t.string   "post_title"
+    t.datetime "read_at"
   end
 
   create_table "users", force: :cascade do |t|

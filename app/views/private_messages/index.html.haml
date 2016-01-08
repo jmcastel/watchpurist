@@ -1,47 +1,70 @@
-.row	
-	.jumbotron
-		.text-center
-			.h1.center-block My messages : 
+#index_private_message
 
-- if @privatemessages.count > 0 
-	- @privatemessages.each do |mess|
-
-
-		.box.panel.panel-default
-			.panel-body
-				.row
-					.col-md-8
-						- @posts.each do |post|
-
-							- if mess.post_id == post.id 
-								%h4 New message for your watch : #{post.title}
-								
-
-								
-					.col-md-4.text-center
-						- @posts.each do |post|
-							- if mess.post_id == post.id 
-							
-								= link_to "Read" , post_private_message_path(post,mess.id), class: "btn btn-success center-block"
-					
-
-						
-			.panel-footer
-				.row	
-					.col-md-12
-						%h5  #{time_ago_in_words mess.created_at} ago
-						
-					
-						
-						
-
-					
-						
-					
-- else
 	.row	
 		.jumbotron
 			.text-center
-				%h3.center-block You don't have any message yet !
+				.h1.center-block My messages : 
 
-= will_paginate @privatemessages , renderer: BootstrapPagination::Rails
+	- if @privatemessages.count > 0 
+		- @privatemessages.each do |mess|
+
+
+			.box.panel.panel-default
+				- if mess.read_at?
+					.panel-body
+						.row
+							.col-md-8
+								- @posts.each do |post|
+
+									- if mess.post_id == post.id 
+										%h4 Message for your watch : #{post.title}
+									
+
+									
+							.col-md-4.text-center
+								- @posts.each do |post|
+									- if mess.post_id == post.id 
+									
+										= link_to "Read" , post_private_message_path(post,mess.id), class: "btn btn-success center-block"
+				- else
+					.panel-body-read
+						.row
+							.col-md-8
+								- @posts.each do |post|
+
+									- if mess.post_id == post.id 
+										%h4 New message for your watch : #{post.title}
+									
+
+									
+							.col-md-4.text-center
+								- @posts.each do |post|
+									- if mess.post_id == post.id 
+									
+										= link_to "Read" , post_private_message_path(post,mess.id), class: "btn btn-success center-block"
+
+
+							
+				.panel-footer
+					.row
+							
+						.col-md-12
+							%h5  #{time_ago_in_words mess.created_at} ago
+						 
+							
+
+							
+						
+							
+							
+
+						
+							
+						
+	- else
+		.row	
+			.jumbotron
+				.text-center
+					%h3.center-block You don't have any message yet !
+
+	= will_paginate @privatemessages , renderer: BootstrapPagination::Rails

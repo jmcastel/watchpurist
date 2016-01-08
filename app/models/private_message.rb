@@ -10,4 +10,9 @@ class PrivateMessage < ActiveRecord::Base
 		AdminMailer.new_message(self).deliver 
 	end
 
+	def readingmessage
+  		self.read_at ||= Time.now
+  		save
+	end
+
 end
