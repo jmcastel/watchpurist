@@ -36,6 +36,11 @@ class PrivateMessagesController < ApplicationController
 			flash[:notice] = "Your message was sent successfully !"
 			redirect_to @post
 
+			# create notification
+			
+			Notification.create(recipient: @post.user, actor: current_user, action: "sent you a message", notifiable: @post)
+			
+
 		else
 			render 'new'
 		end

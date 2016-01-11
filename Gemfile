@@ -38,6 +38,8 @@ gem 'newrelic_rpm'
 
 gem 'mandrill-api', '~> 1.0', '>= 1.0.53', require: "mandrill"
 
+gem 'font-awesome-rails', '~> 4.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
 
-	
+
+	belongs_to :user 
+	has_many :private_messages , dependent: :destroy
+	has_many :users, through: :private_messages
 
 	has_attached_file :image, styles:  { original: {convert_options: '-auto-orient'}, large: "1024x1024>", medium: "300x300>", thumb: "100x100>" }
 	has_attached_file :image2, styles: { original: {convert_options: '-auto-orient'}, large: "1024x1024>", medium: "300x300>", thumb: "100x100>" }
@@ -32,13 +35,6 @@ class Post < ActiveRecord::Base
 		end
 
 
-		
-
-
-	
-
-	belongs_to :user 
-	has_many :private_messages , dependent: :destroy
 
 
 	#monetize :price

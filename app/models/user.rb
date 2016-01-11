@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :post , dependent: :destroy
+  has_many :notifications, as: :notifiable, foreign_key: :recipient_id
 
 
   validates :pseudo, presence: true

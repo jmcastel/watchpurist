@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   get 'messages' => 'private_messages#index'
 
   
-  #resources :messages, except: [:new, :edit]
+  resources :notifications do 
+  	collection do
+  		post :mark_as_read
+  	end
+  end
 
   get 'mywatches' => 'mywatches#index'
 
