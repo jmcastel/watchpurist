@@ -34,7 +34,7 @@ gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 gem 'puma'
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 
 gem 'mandrill-api', '~> 1.0', '>= 1.0.53', require: "mandrill"
 
