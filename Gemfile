@@ -35,6 +35,7 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 gem 'puma'
 #gem 'newrelic_rpm'
+gem 'jquery-turbolinks', '~> 2.1'
 
 gem 'mandrill-api', '~> 1.0', '>= 1.0.53', require: "mandrill"
 

@@ -12,11 +12,12 @@
 
 
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require cocoon
 
-//= require turbolinks
+
 //= require_tree .
 
