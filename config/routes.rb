@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#index' 
   get 'messages' => 'private_messages#index'
+  get 'hello' => 'hello#index'
 
   
   resources :notifications 

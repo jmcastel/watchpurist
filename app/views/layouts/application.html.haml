@@ -5,44 +5,49 @@
 	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
 	= javascript_include_tag 'application', 'data-turbolinks-track' => true
 	= csrf_meta_tags 
-
-%body
-	%nav.navbar.navbar-default
-		.container
-			.navbar-brand= link_to "watchpurist", root_path
-			- if user_signed_in?
-				%ul.nav.navbar-nav.navbar-right
-					%li.nav-item.btn-group{ :data => { :behavior => "notifications", :notifications => (render template: "notifications/index", formats: [:json]) }}
-						%a#dropdownMenu1.dropdown-toggle.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-behavior" => "notifications-link", "data-toggle" => "dropdown", :type => "button"}
-							= fa_icon "bell"
+- unless controller_name == "hello"
+	%body
+		%nav.navbar.navbar-default
+			.container
+				
+				.navbar-brand= link_to "watchpurist", root_path
+				- if user_signed_in?
+					%ul.nav.navbar-nav.navbar-right
+						%li.nav-item.btn-group{ :data => { :behavior => "notifications", :notifications => (render template: "notifications/index", formats: [:json]) }}
+							%a#dropdownMenu1.dropdown-toggle.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-behavior" => "notifications-link", "data-toggle" => "dropdown", :type => "button"}
+								= fa_icon "bell"
+								
+								%span.notifs{"data-behavior" => "unread-count"} 
+							- if @notifications.present?
 							
-							%span.notifs{"data-behavior" => "unread-count"} 
-						- if @notifications.present?
+								.dropdown-menu{"aria-labelledby" => "dropdownMenu1", "data-behavior" => "notification-items"}
+							- else 
+								.dropdown-menu
+									%a No more news :(
+								
+							
+
+								
+						%li= link_to "Sell a watch", new_post_path 
+						%li= link_to "Dashboard", dashboard_path
+						%li= link_to "Account", edit_user_registration_path
+						%li= link_to "Sign Out", destroy_user_session_path, method: :delete
+				- else
+					%ul.nav.navbar-nav.navbar-right
+						%li= link_to "Sell a watch", new_user_session_path 
+						%li= link_to "Sign Up", new_user_registration_path 
+						%li= link_to "Sign In", new_user_session_path
 						
-							.dropdown-menu{"aria-labelledby" => "dropdownMenu1", "data-behavior" => "notification-items"}
-							
-						
+.container
 
-							
-					%li= link_to "Sell a watch", new_post_path 
-					%li= link_to "Dashboard", dashboard_path
-					%li= link_to "Account", edit_user_registration_path
-					%li= link_to "Sign Out", destroy_user_session_path, method: :delete
-			- else
-				%ul.nav.navbar-nav.navbar-right
-					%li= link_to "Sell a watch", new_user_session_path 
-					%li= link_to "Sign Up", new_user_registration_path 
-					%li= link_to "Sign In", new_user_session_path
-					
-	.container
+	
+	- if flash[:error] || flash[:notice] || flash[:alert]
+		.panel.panel-default
+			.panel-body
+				= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] 
+				= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] 
+				= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
+	= yield 
 
-		
-		- if flash[:error] || flash[:notice] || flash[:alert]
-			.panel.panel-default
-				.panel-body
-					= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] 
-					= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] 
-					= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
-		= yield 
 
 

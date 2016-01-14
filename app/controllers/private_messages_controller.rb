@@ -50,7 +50,7 @@ class PrivateMessagesController < ApplicationController
 
 	def destroy
 		@privatemessage.destroy
-		redirect_to root_path
+		redirect_to messages_path
 	end
 
 	private
