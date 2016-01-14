@@ -12,13 +12,14 @@
 			.navbar-brand= link_to "watchpurist", root_path
 			- if user_signed_in?
 				%ul.nav.navbar-nav.navbar-right
-					%li.nav-item.btn-group{"data-behavior"=>"notifications"}
+					%li.nav-item.btn-group{ :data => { :behavior => "notifications", :notifications => (render template: "notifications/index", formats: [:json]) }}
 						%a#dropdownMenu1.dropdown-toggle.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-behavior" => "notifications-link", "data-toggle" => "dropdown", :type => "button"}
 							= fa_icon "bell"
 							
 							%span.notifs{"data-behavior" => "unread-count"} 
+						- if @notifications.present?
 						
-						.dropdown-menu{"aria-labelledby" => "dropdownMenu1", "data-behavior" => "notification-items"}
+							.dropdown-menu{"aria-labelledby" => "dropdownMenu1", "data-behavior" => "notification-items"}
 							
 						
 

@@ -15,11 +15,9 @@ Rails.application.routes.draw do
   get 'messages' => 'private_messages#index'
 
   
-  resources :notifications do 
-  	collection do
-  		post :mark_as_read
-  	end
-  end
+  resources :notifications 
+  	
+  
 
   get 'mywatches' => 'mywatches#index'
 

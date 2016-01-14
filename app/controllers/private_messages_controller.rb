@@ -3,6 +3,8 @@ class PrivateMessagesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_message, only: [:show, :edit, :update, :destroy]
 	before_action :set_post , only: [:new, :create]
+	before_action :mark_as_read 
+
 
 	def index
 		@privatemessages = PrivateMessage.where(user_id: current_user).order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
@@ -65,5 +67,11 @@ class PrivateMessagesController < ApplicationController
       		params[:private_message].permit(:title, :content, :post_id, :user_id)
 
     	end
+
+    	def mark_as_read
+		@notifications = Notification.where(recipient: current_user).unread
+		@notifications.update_all(read_at: Time.zone.now)
+		
+	end
 
 end
