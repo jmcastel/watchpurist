@@ -1,27 +1,28 @@
-.row	
-	.jumbotron
-		.text-center
-			.h1.center-block My Watches : 
+.container
+	.row	
+		.jumbotron
+			.text-center
+				.h1.center-block My Watches : 
 
-#posts.transitions-enabled
+	#posts.transitions-enabled
 
-	- if @posts.count > 0
+		- if @posts.count > 0
 
-		
-		- @posts.each do |post|
-			.col-md-6.col-lg-3
-			.box.panel.panel-default
-				- if post.image.present?
+			
+			- @posts.each do |post|
+				.col-md-6.col-lg-3
+				.box.panel.panel-default
+					- if post.image.present?
 
-					= link_to (image_tag  post.image.url) , post
-				.panel-body
-					%h2= link_to post.title , post
-	- else 
-		.row
-			.jumbotron
-				.text-center
-					%h2.center-block You didn't post any watch yet !
-		%br
-		= link_to "Sell a watch", new_post_path , class: "btn btn-success center-block"
+						= link_to (image_tag  post.image.url) , post
+					.panel-body
+						%h2= link_to post.title , post
+		- else 
+			.row
+				.jumbotron
+					.text-center
+						%h2.center-block You didn't post any watch yet !
+			%br
+			= link_to "Sell a watch", new_post_path , class: "btn btn-success center-block"
 
-= will_paginate @posts , renderer: BootstrapPagination::Rails
+	= will_paginate @posts , renderer: BootstrapPagination::Rails

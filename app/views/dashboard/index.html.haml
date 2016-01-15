@@ -1,21 +1,21 @@
+.container
+	.row
+		.jumbotron
+			.text-center
+				.h1 Welcome to your dashboard !
+		
+	.row
+		.col-md-6
+			.box.panel.panel-default
+				.panel-body
+					.text-center
+						%h1= link_to 'My messages', messages_path, class: "center-block"
 
-.row
-	.jumbotron
-		.text-center
-			.h1 Welcome to your dashboard !
-	
-.row
-	.col-md-6
-		.box.panel.panel-default
-			.panel-body
-				.text-center
-					%h1= link_to 'My messages', messages_path, class: "center-block"
-
-	.col-md-6
-		.box.panel.panel-default
-			.panel-body
-				.text-center
-					%h1= link_to 'My watches', mywatches_path, class: "center-block"
+		.col-md-6
+			.box.panel.panel-default
+				.panel-body
+					.text-center
+						%h1= link_to 'My watches', mywatches_path, class: "center-block"
 
 
 

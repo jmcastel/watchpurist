@@ -1,44 +1,44 @@
-
-.box.panel.panel-default
-	.panel-body
-		.row
-			
-			.col-md-4
-				%h3 Title :
-
-			
-				.well
-					= @privatemessage.title 
-			
-
-			.col-md-4
-				%h3 Content :
-			
-				.well
-					= @privatemessage.content
-
-		
-			.col-md-4.text-center
-				- @posts.each do |post|
-					- if @privatemessage.post_id == post.id 
-						= link_to (image_tag  post.image.url(:medium)) , post , class: "center-block"
-		
-
-	.panel-footer
-		.row	
-			.col-md-4
-				%h4  #{time_ago_in_words @privatemessage.created_at} ago
+.container
+	.box.panel.panel-default
+		.panel-body
+			.row
 				
-			.col-md-4	
+				.col-md-4
+					%h3 Title :
+
+				
+					.well
+						= @privatemessage.title 
+				
+
+				.col-md-4
+					%h3 Content :
+				
+					.well
+						= @privatemessage.content
+
+			
+				.col-md-4.text-center
+					- @posts.each do |post|
+						- if @privatemessage.post_id == post.id 
+							= link_to (image_tag  post.image.url(:medium)) , post , class: "center-block"
+			
+
+		.panel-footer
+			.row	
+				.col-md-4
+					%h4  #{time_ago_in_words @privatemessage.created_at} ago
 					
-				%h4 from : #{ @privatemessage.email}
-				
-				
+				.col-md-4	
+						
+					%h4 from : #{ @privatemessage.email}
+					
+					
 
-			.col-md-4
-				.btn-group.pull-right
-					= link_to 'Destroy' , post_private_message_path(@post,@privatemessage.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
-					= link_to 'Back', messages_path, class: "btn btn-default"
+				.col-md-4
+					.btn-group.pull-right
+						= link_to 'Destroy' , post_private_message_path(@post,@privatemessage.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+						= link_to 'Back', messages_path, class: "btn btn-default"
 
 
 

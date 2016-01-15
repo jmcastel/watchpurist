@@ -1,9 +1,10 @@
 
-#post_show.row
-	.col-md-8
+.container
+
+	.col-md-6.col-md-offset-3
 		%h1 Editing Post
 		%br
-	
+
 		= render 'form' 
 		%br
 		= link_to 'Back', posts_path 
