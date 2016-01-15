@@ -26,7 +26,7 @@
     = f.input :year,  input_html: { class: 'form-control'} 
 
   .form-group
-    = f.input :price,  input_html: { class: 'form-control'}
+    = f.input :price,  input_html: { class: 'form-control',:inputmode => "numeric", :pattern => "[0-9]*", :type => "number"}
 
   .form-group
     = f.input :availability,  input_html: { class: 'form-control'}

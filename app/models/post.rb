@@ -37,7 +37,7 @@ class Post < ActiveRecord::Base
 
 
 
-	#monetize :price
+	monetize :price
 
 	#validates :title, :brand, :model, :price, :year, presence: true
 	validates :image, presence: true
