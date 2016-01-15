@@ -30,7 +30,8 @@
 
         %p.price
           Year :
-          = @post.year
+          = @post.year 
+
 
         %p.price
           Condition :
@@ -68,6 +69,7 @@
           %strong Price :
           %strong 
           = @post.price
+          = @post.currency
       
       .panel-footer
         .row

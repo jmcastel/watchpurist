@@ -1,15 +1,18 @@
 
-%head
-	.row
-%body
-	.row
-		.jumbotron.flex
-			.text-center
-				.h1 Welcome to Watchpurist !
-				.h3 the best way for selling or buying luxury watches
+#hello
+	
 
-		.jumbotron.flex
-			.input-group
-				%input.form-control{:placeholder => "Search for...", :type => "text"}/
-				%span.input-group-btn
-					%button.btn.btn-default{:type => "button"} Go!
+	.jumbotron.text-center.header
+
+
+		
+			
+		.h1 Welcome to Watchpurist !
+		.h3 the best way for selling or buying luxury watches
+
+		%br	
+		%br	
+		%br		
+		
+		
+		= link_to "Go", root_path , class: "btn btn-success btn-lg"

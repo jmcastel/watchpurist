@@ -18,6 +18,7 @@
 @import "font-awesome";
 
 
+
 body {
 	background: #E9E9E9;
 }
@@ -125,6 +126,41 @@ nav {
 	}
 }
 
+#hello {
+	.header {
+		height: 100vh;
+		width: 100%;
+		background-image: url('/images/hello.jpg');
+		background-size: cover;
+		background-position: center;
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		.h1 {
+			color:#FD0E48;
+			background: #ffffff;
+		}
+		.h3 {
+			color:#FD0E48;
+			background: #ffffff;
+		}
+		.btn-lg {
+			padding: 18px 28px;
+			font-size: 22px;
+			line-height: normal;
+			-webkit-border-radius: 8px;
+			-moz-border-radius: 8px;
+            border-radius: 8px;
+            width: 200px;
+        }
+	}
+  
+  
+}
+
 textarea {
 	min-height: 250px;
 }
@@ -144,6 +180,7 @@ textarea {
 	width: 300px;
 	
 }
+
 
 .pagination > li > a,
 .pagination > li > span {
