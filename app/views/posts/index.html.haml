@@ -6,10 +6,23 @@
 			
 	.h1 Welcome to Watchpurist !
 	.h3 the best way for selling or buying luxury watches
+	%br
+	%br
+	= form_tag posts_path, method: :get do
+		= text_field_tag :q, nil, placeholder: "Search ...", class: "search"
+		%br
+		%br
+		- if @query == "*" 
+
+		- else 
+			%h3 Results for search : #{@query}
+			
+			%br
+			= link_to "Clear", root_path
 
 	%br	
-	%br	
-	%br	
+	
+		
 .container	
 	#posts.transitions-enabled
 

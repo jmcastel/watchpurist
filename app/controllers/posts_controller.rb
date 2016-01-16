@@ -5,7 +5,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 4)
+    @query = params.fetch(:q, "*").presence || "*"
+    @posts = Post.search(@query, order: {created_at: :desc} ,page: params[:page], per_page: 16)
+
+    #@posts = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 4)
   end
 
   

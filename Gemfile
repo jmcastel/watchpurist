@@ -40,6 +40,7 @@ gem 'jquery-turbolinks', '~> 2.1'
 gem 'mandrill-api', '~> 1.0', '>= 1.0.53', require: "mandrill"
 
 gem 'font-awesome-rails', '~> 4.5'
+gem 'searchkick', '~> 1.1', '>= 1.1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
