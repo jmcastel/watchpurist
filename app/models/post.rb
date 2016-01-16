@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-	searchkick
+	searchkick word_start: [:title, :brand, :model]
 
 	belongs_to :user 
 	has_many :private_messages , dependent: :destroy
