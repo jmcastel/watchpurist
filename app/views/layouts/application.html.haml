@@ -17,7 +17,7 @@
 							%a#dropdownMenu1.dropdown-toggle.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-behavior" => "notifications-link", "data-toggle" => "dropdown", :type => "button"}
 								= fa_icon "bell"
 								
-								%span.notifs{"data-behavior" => "unread-count"} 
+								%span.label.label-danger{"data-behavior" => "unread-count"} 
 							- if @notifications.present?
 							
 								.dropdown-menu{"aria-labelledby" => "dropdownMenu1", "data-behavior" => "notification-items"}

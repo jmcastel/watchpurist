@@ -17,27 +17,48 @@
 @import "bootstrap";
 @import "font-awesome";
 
-
+$backgroundNav : #ffffff;
+$backgroundBody : #E9E9E9;
+$red : #FD0E48;
 
 body {
-	background: #E9E9E9;
+	background: $backgroundBody;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 100;
+
 }
 
+
+
 nav {
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-	.navbar-brand {
+
+	/*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);*/
+		.navbar-brand {
+
 		a {
-			color: #FD0E48;
+			
+			color: $red;
 			font-weight: bold;
 			&:hover {
 				text-decoration: none;
 			}
 		}
+
+
 	}
+}
+
+.jumbotron {
+	background-color: $backgroundBody;
+	.h1{
+	color: $red;
+}
+}
+
+.navbar-default {
+	background-color: $backgroundNav;
 }
 
 .search{
@@ -46,8 +67,9 @@ nav {
 	width: 400px;
 	height: 50px;
 	border-radius: 20px;
-	border-style: thin;
-	border: 0,5px;
+	border-style: solid;
+	border-width: 0,5px;
+	border: 0,1px;
    }
 
 #posts {
@@ -57,6 +79,8 @@ nav {
 	  margin: 10px;
 	  width: 320px;
 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	  /*border-color: $red;*/
+	  border-width: 0,5px;
 	  border-radius: 7px;
 	  text-align: center;
 	  img {
@@ -176,7 +200,7 @@ textarea {
 	min-height: 250px;
 }
 
-.notifs{
+.dropdown-item{
 	display:inline;
 	color: #FD0E48;
 	
