@@ -86,7 +86,7 @@
                 - if @post.user == current_user
                   = link_to "Edit", edit_post_path(@post), class: "btn btn-default"
                   = link_to 'Destroy' , @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
-                = link_to 'Back', posts_path, class: "btn btn-default"
+                = link_to 'Back', 'javascript:history.go(-1);', class: "btn btn-default"
                 %br
 
 
