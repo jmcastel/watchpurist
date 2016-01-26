@@ -23,30 +23,44 @@
 	%br	
 	
 		
-.container	
-	#posts.transitions-enabled
+.container
 
+	.col-md-10	
+		#posts.transitions-enabled
 
-			
-		- @posts.each do |post|
-			.col-xs-6.col-sm-4.col-md-3
-			.box.panel.panel-default
-				- if post.image.present?
+		
+				
+			- @posts.each do |post|
+				.col-xs-6.col-sm-4.col-md-3
+				.box.panel.panel-default
+					- if post.image.present?
 
-					= link_to (image_tag  post.image.url(:large)) , post
-				.panel-body
-					%h2= link_to post.title , post
-					Brand :
-					= post.brand
-					%br
-					Model :
-					= post.model 
-					%br
-					%br
-					Price :
-					= post.price
-					= post.currency
+						= link_to (image_tag  post.image.url(:large)) , post
+					.panel-body
+						%h2= link_to post.title , post
+						Brand :
+						= post.brand
+						%br
+						Model :
+						= post.model 
+						%br
+						%br
+						Price :
+						= post.price
+						= post.currency
+	.col-md-2
+		.well
+			- if @posts.aggs["brand"].present?
+				%span Brand
+				%ul.menu
+					- @posts.aggs["brand"]["buckets"].each do |filter|
+						%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/posts?brand=#{filter["key"]}"
 
+			- if @posts.aggs["model"].present?
+				%span Model
+				%ul.menu
+					- @posts.aggs["model"]["buckets"].each do |filter|
+						%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/posts?model=#{filter["key"]}"
 	= will_paginate @posts , renderer: BootstrapPagination::Rails
 
 
