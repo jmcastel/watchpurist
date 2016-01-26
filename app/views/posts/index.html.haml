@@ -51,16 +51,18 @@
 	.col-md-3
 		.well
 			- if @posts.aggs["brand"].present?
-				%span Brand
+				.h4 Brands :
+				%br
 				%ul.menu
 					- @posts.aggs["brand"]["buckets"].each do |filter|
 						%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/posts?brand=#{filter["key"]}"
-
-			- if @posts.aggs["model"].present?
-				%span Model
-				%ul.menu
-					- @posts.aggs["model"]["buckets"].each do |filter|
-						%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/posts?model=#{filter["key"]}"
+						- if current_page?("/posts?brand=#{filter["key"]}")
+							- if @posts.aggs["model"].present?
+								.h6 Models :
+								%ul.menu
+									- @posts.aggs["model"]["buckets"].each do |filter|
+										%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/posts?model=#{filter["key"]}"
+									%br
 	= will_paginate @posts , renderer: BootstrapPagination::Rails
 
 
