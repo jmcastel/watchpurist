@@ -22,5 +22,9 @@
       .form-group
         = f.input :password_confirmation, input_html: {  autocomplete: "off", class: 'form-control'}
 
+      .form-group
+        .h5 Avatar :
+        = f.file_field :avatar
+
 
       = f.button :submit, class: "btn btn-primary"
