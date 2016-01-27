@@ -148,6 +148,7 @@ nav {
 			padding-top: 8px;
 		}
 	}
+	
 }
 
 #index_private_message {
@@ -159,6 +160,22 @@ nav {
 		background-color: #FEE7EC ;
 		border: 1px solid #FD0E48 ;
 	}
+}
+
+.img {
+	overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width:100px;
+    height:100px;
+    box-shadow: 0px 5px 5px #656565;
+}
+
+.userbox {
+	background-color: #ffffff;
+	height: 150px;
+	padding: 30px 30px 30px 30px;
 }
 
 #hello {
@@ -195,6 +212,7 @@ nav {
   
   
 }
+
 
 textarea {
 	min-height: 250px;
