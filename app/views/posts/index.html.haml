@@ -25,31 +25,44 @@
 		
 .container
 
-	.col-md-9	
-		#posts.transitions-enabled
+	.col-md-9.posts
+		
 
 		
+			
+		- @posts.each do |post|
+			.row.boxpost
 				
-			- @posts.each do |post|
-				.col-xs-6.col-sm-4.col-md-3
-				.box.panel.panel-default
-					- if post.image.present?
+					
+				.col-sm-3
 
-						= link_to (image_tag  post.image.url(:large)) , post
-					.panel-body
-						%h2= link_to post.title , post
-						Brand :
+					= link_to (image_tag  post.image.url(:medium)) , post
+
+				.col-sm-9
+					.col-sm-8.text
+						.title= link_to post.title , post
 						= post.brand
 						%br
-						Model :
-						= post.model 
+						= post.model
 						%br
-						%br
-						Price :
+						= post.year
+
+					.col-sm-4.price
+
 						= post.price
 						= post.currency
+						%br
+						%br
+						= link_to "More details" , post , class: "btn btn-primary"
+						%br
+						%br
+
+
+					
+						
+						
 	.col-md-3
-		.well
+		.well.filter
 			- if @posts.aggs["brand"].present?
 				.h4 Brands :
 				%br
@@ -65,4 +78,5 @@
 									%br
 	= will_paginate @posts , renderer: BootstrapPagination::Rails
 
-
+%br
+%br

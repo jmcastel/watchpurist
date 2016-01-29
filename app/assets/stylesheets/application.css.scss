@@ -32,6 +32,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+
+
 nav {
 
 	/*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);*/
@@ -72,27 +74,74 @@ nav {
 	border: 0,1px;
    }
 
-#posts {
-  margin: 0 auto;
-  width: 100%;
-  .box {
+.filter {
+	margin: 10px
+}
+
+.posts {
+  
+  
+  .boxpost {
 	  margin: 10px;
-	  width: 250px;
+	  min-height: 220px;
+	  height: auto;
 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-	  /*border-color: $red;*/
+	  border-color: $red;
 	  border-width: 0,5px;
 	  border-radius: 7px;
-	  text-align: center;
+	  text-align: left;
+	  background-color: #ffffff;
+	  width: 100%;
+
+	  .text {
+	  	
+
+	  	padding-top: 40px;
+		
+	  }
+	  .price {
+	  	
+		margin-top: 20px;
+	  	background: #F6F6F6;
+	  	float: right;
+
+	  	height :180px;
+	  	color: #000000;
+	  	font-weight: bold;
+	  	text-align: center;
+
+	  	padding: 70px 0px 0px 0px;
+	  	
+  	
+	  }
+
+
 	  img {
-	  	max-width: 100%;
-	  	height: auto;
+	  	
+		display: block;
+		margin: 0 auto;
+	  	height: 190px;
+	  	overflow: hidden;
+	  	padding-top: 20px;
+	  	
+	  	
+
+	  }
+	  .title {
+	  	
+	  	a {
+				color: $red;
+				font-size: 18px;
+				padding-top: 0px;
+	  	}
+
 	  }
 	  h2 {
 	  	font-size: 22px;
 	  	margin: 0;
-	  	padding: 25px 10px;
+	  	padding: 10px 10px;
 	  	a {
-				color: #474747;
+				color: $red;
 	  	}
 	  }
 	  .user {
@@ -101,11 +150,33 @@ nav {
 			padding: 15px;
 			margin: 0;
 	  }
-	}
-
-   
+	}   
   
 }
+
+
+@media (max-width: 480px) {
+
+
+
+	.post{
+
+		
+
+		
+
+		.price {
+			height: 50px;
+			background-color: red;
+		}
+
+	}	
+
+
+	}
+
+
+
 
 #edit_page {
 	.current_image {

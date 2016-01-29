@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   as :user do
-    get 'users', :to => 'users#index', :as => :user_root # Rails 3
+    get 'users', :to => 'users#index' # Rails 3
     get 'users/:id',      to: 'users#show',    as: :single_user
   end
 
