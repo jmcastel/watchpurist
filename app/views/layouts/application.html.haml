@@ -4,7 +4,8 @@
 	%title Watchpurist
 	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
 	= javascript_include_tag 'application', 'data-turbolinks-track' => true
-	= csrf_meta_tags 
+	= csrf_meta_tags
+	 
 - unless controller_name == "hello"
 	%body
 		%nav.navbar.navbar-default

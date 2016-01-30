@@ -21,6 +21,8 @@ $backgroundNav : #ffffff;
 $backgroundBody : #E9E9E9;
 $red : #FD0E48;
 
+
+
 body {
 	background: $backgroundBody;
 }
@@ -78,6 +80,15 @@ nav {
 	margin: 10px
 }
 
+@media(max-width: 700px){ 
+
+	background-color: red;
+
+		
+
+
+}
+
 .posts {
   
   
@@ -121,6 +132,7 @@ nav {
 		display: block;
 		margin: 0 auto;
 	  	height: 190px;
+	  	max-width: 190px;
 	  	overflow: hidden;
 	  	padding-top: 20px;
 	  	
@@ -153,29 +165,6 @@ nav {
 	}   
   
 }
-
-
-@media (max-width: 480px) {
-
-
-
-	.post{
-
-		
-
-		
-
-		.price {
-			height: 50px;
-			background-color: red;
-		}
-
-	}	
-
-
-	}
-
-
 
 
 #edit_page {
@@ -320,3 +309,5 @@ textarea {
     background-color: #FD0E48;
     border-color: #FD0E48;
 }
+
+
