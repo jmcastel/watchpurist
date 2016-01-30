@@ -12,7 +12,7 @@
  * file per style scope.
  *
  *= require 'masonry/transitions'
- *= require_tree ./layout
+ *= require_tree .
  *= require_self
  */
 
@@ -22,18 +22,22 @@
 @import "bootstrap";
 @import "font-awesome";
 
-/*--
- ####################
- 		Layout
- ####################
- --*/
-@import 'layout/responsive';
+
 
 
 $backgroundNav : #ffffff;
 $backgroundBody : #E9E9E9;
 $red : #FD0E48;
 
+@media screen and (max-width: 770px){ 
+
+	
+	background-color: red;
+	
+		
+
+
+}
 
 
 body {
@@ -99,7 +103,91 @@ nav {
 	padding: 20px;
 }
 
+.boxpostuser {
+	  margin: 10px;
+	  
+	  height: auto;
+	  min-height: 200px;
+	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	  border-color: $red;
+	  border-width: 0,5px;
+	  border-radius: 7px;
+	  text-align: left;
+	  background-color: #ffffff;
+	  width: 800px;
 
+	  .text {
+	  	
+		margin-top: 20px;
+		margin-bottom: 20px;
+	  	padding-top: 40px;
+	  	padding-left: 20px;
+	  	margin-left: 0px;
+	  	width: 100%;
+	  	height: 100%;
+	  	
+		
+	  }
+	  .price {
+	  	
+		margin-top: 20px;
+		margin-bottom: 20px;
+	  	background: #F6F6F6;
+	  	float: right;
+
+	  	height :100%;
+	  	color: #000000;
+	  	font-weight: bold;
+	  	text-align: center;
+
+	  	padding: 60px 0px 0px 0px;
+	  	width: 100%;
+  	
+	  }
+	  .imgbox{
+	  	width: 180px;
+	  	height: 180px;
+	  	overflow: hidden;
+	  	
+	  	margin-top: 20px;
+	  	margin-bottom: 20px;
+	  	margin-right: 20px;
+	  	margin-left: 5px;
+	  	text-align: center;
+
+	  }
+
+	  img {
+	  	
+	  	margin:0 -100%;
+		vertical-align: middle;
+		height: 100%;
+
+	  }
+	  .title {
+	  	
+	  	a {
+				color: $red;
+				font-size: 18px;
+				padding-top: 0px;
+	  	}
+
+	  }
+	  h2 {
+	  	font-size: 22px;
+	  	margin: 0;
+	  	padding: 10px 10px;
+	  	a {
+				color: $red;
+	  	}
+	  }
+	  .user {
+	  	font-size: 12px;
+	  	border-top: 1px solid #EAEAEA;
+			padding: 15px;
+			margin: 0;
+	  }
+	}
 
 .posts {
   

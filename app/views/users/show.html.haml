@@ -1,40 +1,57 @@
 .container
 
-	.col-md-6
-		.well
-			%h1 User: 
-			= @user.pseudo
-			%h2 Email :
-			= @user.email
-	.col-md-6
-		- if @user.avatar.present?
-			.well
-				
-				= image_tag  @user.avatar.url(:medium)
+	
+	.filter
+		.row
+			.col-md-6
+				%h1 User: 
+				= @user.pseudo
+				%h2 Email :
+				= @user.email
+			.col-md-6
+				- if @user.avatar.present?
+					
+						
+					= image_tag  @user.avatar.url(:medium)
 
 
-#posts.transitions-enabled
+.posts.transitions-enabled
 
 	- if @posts.count > 0
-
-
-		
-				
-		.jumbotron
-			.row
-				.text-center
-					.h1.center-block Watches : 
-
-	
-		.row		
+		.container
 			- @posts.each do |post|
-				.col-md-6.col-lg-3
-					.box.panel.panel-default
-						- if post.image.present?
+				.row.boxpostuser
+					
+						
+					.col-sm-3
+						.imgbox
+							= link_to (image_tag  post.image.url(:medium)) , post
 
-							= link_to (image_tag  post.image.url) , post
-						.panel-body
-							%h2= link_to post.title , post
+					.col-sm-9
+						.col-xs-6.col-sm-8
+							.text
+								.title= link_to post.title , post
+								= post.brand
+								%br
+								= post.model
+								%br
+								= post.year
+
+						.col-xs-6.col-sm-4
+							.price
+
+								= post.price
+								= post.currency
+								%br
+								%br
+								= link_to "More details" , post , class: "btn btn-primary"
+								%br
+								%br
+								%br
+								%br
+
+			= will_paginate @posts , renderer: BootstrapPagination::Rails
+
 	- else 
 		.container
 			.col-md-12
