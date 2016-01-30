@@ -11,11 +11,16 @@
  * file per style scope.
  *
  *= require 'masonry/transitions'
+ *= require_self
  */
+
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+
 
 $backgroundNav : #ffffff;
 $backgroundBody : #E9E9E9;
@@ -82,8 +87,9 @@ nav {
 
 @media(max-width: 700px){ 
 
-	background-color: red;
-
+	.post {
+		background-color: red;
+	}
 		
 
 
@@ -94,8 +100,9 @@ nav {
   
   .boxpost {
 	  margin: 10px;
-	  min-height: 220px;
+	  
 	  height: auto;
+	  min-height: 200px;
 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
 	  border-color: $red;
 	  border-width: 0,5px;
@@ -103,11 +110,18 @@ nav {
 	  text-align: left;
 	  background-color: #ffffff;
 	  width: 100%;
+	  
 
 	  .text {
 	  	
-
+		margin-top: 20px;
+		margin-bottom: 20px;
 	  	padding-top: 40px;
+	  	padding-left: 20px;
+	  	margin-left: 0px;
+	  	width: 100%;
+	  	height: 100%;
+	  	
 		
 	  }
 	  .price {
@@ -116,25 +130,40 @@ nav {
 	  	background: #F6F6F6;
 	  	float: right;
 
-	  	height :180px;
+	  	height :100%;
 	  	color: #000000;
 	  	font-weight: bold;
 	  	text-align: center;
 
-	  	padding: 70px 0px 0px 0px;
-	  	
+	  	padding: 40px 0px 0px 0px;
+	  	width: 100%;
   	
 	  }
-
+	  .imgbox{
+	  	width: 180px;
+	  	height: 180px;
+	  	overflow: hidden;
+	  	background-color: red;
+	  	margin-top: 20px;
+	  	margin-bottom: 20px;
+	  	margin-right: 20px;
+	  	margin-left: 5px;
+	  }
 
 	  img {
 	  	
-		display: block;
+		/*display: block;
 		margin: 0 auto;
-	  	height: 190px;
+	  	max-height: 190px;
 	  	max-width: 190px;
 	  	overflow: hidden;
-	  	padding-top: 20px;
+	  	padding-top: 20px;*/
+
+	  	
+		width: auto;
+		height: auto;
+		
+		
 	  	
 	  	
 
