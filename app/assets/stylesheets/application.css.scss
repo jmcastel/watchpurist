@@ -61,7 +61,9 @@ nav {
 
 	}
 }
-
+.title{
+	color: $red;
+}
 .jumbotron {
 	background-color: $backgroundBody;
 	.h1{
@@ -92,6 +94,7 @@ nav {
 	border-width: 0,5px;
 	border-radius: 7px;
 	padding: 20px;
+	width: 100%;
 }
 
 .boxpostuser {

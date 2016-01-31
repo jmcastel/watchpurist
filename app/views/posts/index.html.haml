@@ -38,11 +38,20 @@
 								%ul.menu
 									- @posts.aggs["model"]["buckets"].each do |filter|
 										%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/posts?model=#{filter["key"]}"
-									%br
+										%br
+		%br
+									
 	.col-md-9.posts
 		
 
-		
+		- if  current_page?("/")
+
+			
+			.filter 
+				.h3.text-center.title Last Watches
+			%br
+			
+
 			
 		- @posts.each do |post|
 			.row.boxpost
