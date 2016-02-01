@@ -1,18 +1,23 @@
 .container
-
+	.text-center.h1.title
+		Profile
+	%br
+		
 	
-	.filter
+	.filter.boxpostuser.text-center
 		.row
-			.col-md-6
+			
+			.col-sm-6.text-center
+				- if @user.avatar.present?
+					
+						
+					.avatar= image_tag  @user.avatar.url(:medium)
+
+			.col-sm-6
 				%h1 User: 
 				= @user.pseudo
 				%h2 Email :
 				= @user.email
-			.col-md-6
-				- if @user.avatar.present?
-					
-						
-					= image_tag  @user.avatar.url(:medium)
 
 
 .posts.transitions-enabled
