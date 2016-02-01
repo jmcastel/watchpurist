@@ -19,48 +19,49 @@
 				%h2 Email :
 				= @user.email
 
-
-.posts.transitions-enabled
+.container
+	
 
 	- if @posts.count > 0
 		.container
 			.h1.title.text-center= @user.pseudo 
 			.text-center watches 
 			%br
+			.posts.col-md-10.col-md-offset-1
 
-
-			- @posts.each do |post|
-				.row.boxpostuser
-					
+				- @posts.each do |post|
+					.row.boxpost
 						
-					.col-sm-3
-						.imgbox
-							= link_to (image_tag  post.image.url(:medium)) , post
+							
+						.col-xs-3
+							.imgbox
+								= link_to (image_tag  post.image.url(:medium)) , post
 
-					.col-sm-9
-						.col-xs-6.col-sm-8
-							.text
-								.title= link_to post.title , post
-								= post.brand
-								%br
-								= post.model
-								%br
-								= post.year
+						.col-xs-9
+							.col-xs-8.col-sm-8
+								.text
+									.title= link_to post.title , post
+									= post.brand
+									%br
+									= post.model
+									%br
+									= post.year
 
-						.col-xs-6.col-sm-4
-							.price
+							.col-xs-4.col-sm-4
+								.price
+									%br.hidden-sm.hidden-md.hidden-lg
+									= post.price
+									= post.currency
+									%br
+									%br
+									.hidden-xs= link_to "More details" , post , class: "btn btn-primary"
+									.hidden-sm.hidden-md.hidden-lg= link_to "Go" , post , class: "btn btn-primary"
+									%br
+									%br.hidden-xs
+									%br.hidden-xs
+									%br.hidden-xs
 
-								= post.price
-								= post.currency
-								%br
-								%br
-								= link_to "More details" , post , class: "btn btn-primary"
-								%br
-								%br
-								%br
-								%br
-
-			= will_paginate @posts , renderer: BootstrapPagination::Rails
+				= will_paginate @posts , renderer: BootstrapPagination::Rails
 
 	- else 
 		.container

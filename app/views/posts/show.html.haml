@@ -35,36 +35,44 @@
 
 
           %p.price
-            Condition :
-            = @post.condition
+            - if @post.condition.present?
+              Condition :
+              = @post.condition
 
           %p.price
-            Movement :
-            = @post.movement
+            - if @post.movement.present?
+              Movement :
+              = @post.movement
 
           %p.price
-            Case Material :
-            = @post.case
+            - if @post.case.present?
+              Case Material :
+              = @post.case
 
           %p.price
-            Dial :
-            = @post.dial
+            - if @post.dial.present?
+              Dial :
+              = @post.dial
 
           %p.price
-            Bracelet Material :
-            = @post.bracelet
+            - if @post.bracelet.present?
+              Bracelet Material :
+              = @post.bracelet
 
           %p.price
-            Functions :
-            = @post.functions
+            - if @post.functions.present?
+              Functions :
+              = @post.functions
 
           %p.price
-            Availability :
-            = @post.availability
+            - if @post.availability.present?
+              Availability :
+              = @post.availability
 
           %p.price
-            Shipping :
-            = @post.shipping
+            - if @post.shipping.present?
+              Shipping :
+              = @post.shipping
 
           %p.price
             %strong Price :
