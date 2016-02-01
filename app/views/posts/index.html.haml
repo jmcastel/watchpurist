@@ -57,12 +57,12 @@
 			.row.boxpost
 				
 					
-				.col-sm-3
+				.col-xs-3
 					.imgbox
 						= link_to (image_tag  post.image.url(:medium)) , post
 
-				.col-sm-9
-					.col-xs-6.col-sm-8
+				.col-xs-9
+					.col-xs-8.col-sm-8
 						.text
 							.title= link_to post.title , post
 							= post.brand
@@ -71,18 +71,19 @@
 							%br
 							= post.year
 
-					.col-xs-6.col-sm-4
+					.col-xs-4.col-sm-4
 						.price
-
+							%br.hidden-sm.hidden-md.hidden-lg
 							= post.price
 							= post.currency
 							%br
 							%br
-							= link_to "More details" , post , class: "btn btn-primary"
+							.hidden-xs= link_to "More details" , post , class: "btn btn-primary"
+							.hidden-sm.hidden-md.hidden-lg= link_to "Go" , post , class: "btn btn-primary"
 							%br
-							%br
-							%br
-							%br
+							%br.hidden-xs
+							%br.hidden-xs
+							%br.hidden-xs
 
 		= will_paginate @posts , renderer: BootstrapPagination::Rails
 					

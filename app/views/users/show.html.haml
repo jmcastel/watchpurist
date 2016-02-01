@@ -19,6 +19,11 @@
 
 	- if @posts.count > 0
 		.container
+			.h1.title.text-center= @user.pseudo 
+			.text-center watches 
+			%br
+
+
 			- @posts.each do |post|
 				.row.boxpostuser
 					
