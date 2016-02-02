@@ -227,7 +227,11 @@ nav {
 	
 
 	body {
-		padding: 0px;
+		padding-right: 0px;
+
+		.navbar-default {
+			padding: 0px;
+		}
 
 		.posts {
 
