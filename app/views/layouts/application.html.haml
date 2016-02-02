@@ -12,7 +12,10 @@
 		%nav.navbar.navbar-default
 			.container
 				
-				.navbar-brand= link_to "watchpurist", root_path
+				.navbar-brand
+					.logo= link_to (image_tag  "/images/wp-logo.png") , root_path
+					
+
 				- if user_signed_in?
 					%ul.nav.navbar-nav.navbar-right
 						%li.nav-item.btn-group{ :data => { :behavior => "notifications", :notifications => (render template: "notifications/index", formats: [:json]) }}

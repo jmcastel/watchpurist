@@ -44,12 +44,17 @@ h1, h2, h3, h4, h5, h6 {
 
 
 nav {
-
+	.navbar-nav{
+		padding-bottom: 0px;
+		background-color: $backgroundNav;
+	}
 	/*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);*/
-		.navbar-brand {
-
+	.navbar-brand {
+		
+		padding-top: 0px;
+		width: 300px;
 		a {
-			
+		
 			color: $red;
 			font-weight: bold;
 			&:hover {
@@ -59,7 +64,29 @@ nav {
 
 
 	}
+
+	
 }
+.navbar-default {
+		background-color: $backgroundNav;
+		padding-top: 20px;
+		padding-bottom : 20px;
+		
+}
+
+
+
+.logo {
+
+	img {
+		height: 55%;
+		width : 55%;
+	}
+
+
+
+}
+
 .title {
 	color: $red;
 }
@@ -70,9 +97,7 @@ nav {
 }
 }
 
-.navbar-default {
-	background-color: $backgroundNav;
-}
+
 
 .search{
 	text-align:center;

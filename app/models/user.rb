@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :post , dependent: :destroy
   has_many :notifications, as: :notifiable, foreign_key: :recipient_id
 
-  has_attached_file :avatar, styles:  { original: {convert_options: '-auto-orient'}, large: "1024x1024>", medium: "300x300>", thumb: "100x100>" }, default_url: '/images/thumbs/missing.png'
+  has_attached_file :avatar, styles:  { original: {convert_options: '-auto-orient'}, large: "1024x1024>", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/missing.png"
   
   validates_attachment_content_type :avatar,  content_type: /\Aimage\/.*\Z/
   
