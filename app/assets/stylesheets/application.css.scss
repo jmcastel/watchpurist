@@ -227,9 +227,17 @@ nav {
 	
 
 	body {
-		padding-right: -24px;
+		padding: 0px;
 
 		margin: 0px;
+
+		.container-fluid, .row {
+    		padding:0px;
+  		}
+  		.navbar-header {
+   			 margin:0px;
+   			 padding: 0px;
+  		}
 
 		.posts {
 
