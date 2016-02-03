@@ -231,7 +231,17 @@ nav {
 
 		margin: 0px;
 
+		.navbar-default {
 		
+		padding-top: 10px;
+		padding-bottom : 10px;
+		padding-right: -24px;
+		
+		}
+
+		.search {
+			width: 250px;
+		}
 
 		.posts {
 
