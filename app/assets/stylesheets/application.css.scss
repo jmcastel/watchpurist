@@ -222,6 +222,30 @@ nav {
 
 /* For Small devices */
 
+@media only screen and (max-width: 480px) {
+	
+	body {
+
+		.navbar-default {
+			
+			margin-left: 24px;
+			margin-right: 24px;
+			padding-right: 24px;
+		
+		}
+
+		.jumbotron {
+			padding: 40px;
+		}
+		
+		
+		margin-right: -24px;
+		margin-left: -24px;
+		
+		
+	}
+}
+
 @media only screen and (max-width: 767px) {
 
 	.header{
@@ -230,20 +254,25 @@ nav {
 
 	body {
 		
-		padding-right: 15px;
-		margin-right: 0px;
+		padding-right: 0px;
+		
+		
 
 		.navbar-default {
 			
 			padding-top: 10px;
 			padding-bottom : 10px;
 			padding-right: -24px;
-			margin-right: -15px;
+			margin-right: 0px;
 		
 		}
 
 		.search {
 			width: 250px;
+		}
+		.filter {
+			margin-left: 0px;
+			margin-right: 0px;
 		}
 
 		.posts {
@@ -252,6 +281,8 @@ nav {
 			.boxpost {
 				height: auto;
 				padding-top: 30px;
+				margin-left: 0px;
+				margin-right: 0px;
 				
 				.text {
 					padding-top: 0px;
