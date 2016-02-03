@@ -224,18 +224,21 @@ nav {
 
 @media only screen and (max-width: 767px) {
 
-	
+	.header{
+		padding: 10px;
+	}
 
 	body {
-		padding: 0px;
-
-		margin: 0px;
+		
+		padding-right: 15px;
+		margin-right: 0px;
 
 		.navbar-default {
-		
-		padding-top: 10px;
-		padding-bottom : 10px;
-		padding-right: -24px;
+			
+			padding-top: 10px;
+			padding-bottom : 10px;
+			padding-right: -24px;
+			margin-right: -15px;
 		
 		}
 
