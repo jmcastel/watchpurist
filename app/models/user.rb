@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   
   before_save :delete_avatar, if: ->{ remove_avatar == '1' && !avatar_updated_at_changed? }
 
-  validates :pseudo, presence: true
+  validates :pseudo, :email,  presence: true
 
   private
   	def delete_avatar
