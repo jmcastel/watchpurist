@@ -129,7 +129,7 @@
               .text-center
                 = link_to "contact seller", new_post_private_message_path(@post), class: "btn btn-success center-block"
         
-        
+- if @post.user != current_user         
   .container
     
     .row
@@ -153,11 +153,21 @@
             .h1.title= @post.user.pseudo 
             
             %br
-            = @post.user.address
+            - if @post.user.address.present?
+              = @post.user.address
+            - else 
+              address not available
       %br
       %br      
 
-
+/ - else
+/   .container
+/     .row
+/       .col-md-6.filter
+/         .title.h3 Displayed 
+/         = pluralize(@post.impressionist_count(:filter=>:ip_address), "time")
+        
+      
 
 
 

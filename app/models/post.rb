@@ -2,6 +2,8 @@ class Post < ActiveRecord::Base
 
 	searchkick word_start: [:title, :brand, :model]
 
+	is_impressionable
+
 	belongs_to :user 
 	has_many :private_messages , dependent: :destroy
 	has_many :users, through: :private_messages
