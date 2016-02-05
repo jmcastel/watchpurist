@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'users/:id',      to: 'users#show',    as: :single_user
   end
 
-  resources :posts do 
+  resources :posts ,path: 'watch' do 
   	resources :private_messages, except: [:index]
 
   end

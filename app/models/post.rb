@@ -2,6 +2,9 @@ class Post < ActiveRecord::Base
 
 	searchkick word_start: [:title, :brand, :model]
 
+	extend FriendlyId
+    friendly_id :brand_and_model, use: :slugged
+
 	is_impressionable
 
 	belongs_to :user 
@@ -36,6 +39,14 @@ class Post < ActiveRecord::Base
 		def delete_image3
 			self.image3 = nil
 		end
+
+		def brand_and_model
+    		"#{brand} model #{model}"
+  		end
+
+  		def should_generate_new_friendly_id?
+    		brand_changed? || model_changed? || super
+  		end
 
 
 
