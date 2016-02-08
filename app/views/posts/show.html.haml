@@ -127,7 +127,7 @@
           .panel.panel-default
             .panel-body
               .text-center
-                = link_to "contact seller", new_post_private_message_path(@post), class: "btn btn-success center-block"
+                = link_to "contact seller", new_post_private_message_path(@post.friendly_id), class: "btn btn-success center-block"
         
 - if @post.user != current_user         
   .container
