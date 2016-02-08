@@ -24,7 +24,7 @@
 
 
 
-$backgroundNav : #ffffff;
+$backgroundNav : #E9E9E9;
 $backgroundBody : #E9E9E9;
 $main_color : #FD0E48;
 /*$main_color : #2EF2FF;*/
@@ -97,7 +97,8 @@ nav {
 
 }
 .jumbotron {
-	background-color: $backgroundBody;
+	margin-top: -10px;
+	background-color: #FFFFFF;
 	.h1{
 		color: $main_color ;
 		background-color: #FFFFFF;
@@ -107,14 +108,10 @@ nav {
 	}
 }
 
-.welcome {
 
-	padding: 20px;
-
-}
 
 .multilogo {
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 	
 	background-size: cover;
