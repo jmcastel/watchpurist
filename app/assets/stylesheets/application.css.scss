@@ -97,20 +97,36 @@ nav {
 
 }
 .jumbotron {
-	background-color: #FFFFFF;
+	background-color: $backgroundBody;
 	.h1{
-	color: $main_color ;
+		color: $main_color ;
+		background-color: #FFFFFF;
+	}
+	.h3{
+		background-color: #FFFFFF;
+	}
 }
+
+.welcome {
+
+	padding: 20px;
+
 }
 
 .multilogo {
+	height: 100vh;
+	width: 100%;
+	
+	background-size: cover;
+	background-position: center;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 	background-image: url('/images/multilogo.png');
-	img {
-		height: 10%;
-		width : 10%;
-		opacity: 0.4;
-		filter: alpha(opacity=40);
-	}
+	
 }
 
 .search{
