@@ -24,7 +24,7 @@
 
 
 
-$backgroundNav : #E9E9E9;
+$backgroundNav : #FFFFFF;
 $backgroundBody : #E9E9E9;
 $main_color : #FD0E48;
 /*$main_color : #2EF2FF;*/
@@ -97,7 +97,8 @@ nav {
 
 }
 .jumbotron {
-	margin-top: -10px;
+	margin-top: 0px;
+	
 	background-color: #FFFFFF;
 	.h1{
 		color: $main_color ;
