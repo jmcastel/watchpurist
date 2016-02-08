@@ -26,7 +26,10 @@
 
 $backgroundNav : #ffffff;
 $backgroundBody : #E9E9E9;
-$red : #FD0E48;
+$main_color : #FD0E48;
+/*$main_color : #000000;*/
+
+
 
 
 
@@ -51,11 +54,11 @@ nav {
 	/*box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);*/
 	.navbar-brand {
 		background: $backgroundNav;
-		padding-top: 0px;
+		padding-top: 10px;
 		width: 250px;
 		a {
 		
-			color: $red;
+			color: $main_color ;
 			font-weight: bold;
 			&:hover {
 				text-decoration: none;
@@ -90,13 +93,13 @@ nav {
 }
 
 .title {
-	color: $red;
+	color: $main_color ;
 
 }
 .jumbotron {
 	background-color: $backgroundBody;
 	.h1{
-	color: $red;
+	color: $main_color ;
 }
 }
 
@@ -117,7 +120,7 @@ nav {
 	margin: 10px;
 	background-color: #ffffff;
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-	border-color: $red;
+	border-color: $main_color ;
 	border-width: 0,5px;
 	border-radius: 7px;
 	padding: 20px;
@@ -130,7 +133,7 @@ nav {
 	  height: auto;
 	  min-height: 200px;
 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-	  border-color: $red;
+	  border-color: $main_color ;
 	  border-width: 0,5px;
 	  border-radius: 7px;
 	  text-align: left;
@@ -201,7 +204,7 @@ nav {
 	  .title {
 	  	
 	  	a {
-				color: $red;
+				color: $main_color ;
 				font-size: 18px;
 				padding-top: 0px;
 	  	}
@@ -212,7 +215,7 @@ nav {
 	  	margin: 0;
 	  	padding: 10px 10px;
 	  	a {
-				color: $red;
+				color: $main_color ;
 	  	}
 	  }
 	  .user {
@@ -243,11 +246,21 @@ nav {
 			padding: 40px;
 		}
 		
-		
-		
+
+		.posts {
+			.boxpost {
+				
+				.price {
+				min-width: 70px;
+				
+				}
+			} 
+		}
+			
 		
 		
 	}
+	
 }
 
 @media only screen and (max-width: 767px) {
@@ -343,7 +356,7 @@ nav {
 	  height: auto;
 	  min-height: 200px;
 	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-	  border-color: $red;
+	  border-color: $main_color ;
 	  border-width: 0,5px;
 	  border-radius: 7px;
 	  text-align: left;
@@ -402,7 +415,7 @@ nav {
 	  .title {
 	  	
 	  	a {
-				color: $red;
+				color: $main_color ;
 				font-size: 18px;
 				padding-top: 0px;
 	  	}
@@ -413,7 +426,7 @@ nav {
 	  	margin: 0;
 	  	padding: 10px 10px;
 	  	a {
-				color: $red;
+				color: $main_color ;
 	  	}
 	  }
 	  .user {
@@ -481,7 +494,7 @@ nav {
 			margin: 0 0 10px 0;
 		}
 		background-color: #FEE7EC ;
-		border: 1px solid #FD0E48 ;
+		border: 1px solid $main_color  ;
 	}
 }
 
@@ -515,11 +528,11 @@ nav {
 		align-items: center;
 		text-align: center;
 		.h1 {
-			color:#FD0E48;
+			color:$main_color ;
 			background: #ffffff;
 		}
 		.h3 {
-			color:#FD0E48;
+			color:$main_color;
 			background: #ffffff;
 		}
 		.btn-lg {
@@ -543,7 +556,7 @@ textarea {
 
 .dropdown-item{
 	display:inline;
-	color: #FD0E48;
+	color: $main_color;
 	background: $backgroundNav;
 	
 }
@@ -553,7 +566,7 @@ textarea {
 	padding-right: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	color: #FD0E48;
+	color: $main_color;
 	width: 300px;
 	background-color: $backgroundNav;
 	
@@ -562,7 +575,7 @@ textarea {
 
 .pagination > li > a,
 .pagination > li > span {
-    color: #FD0E48; // use your own color here
+    color: $main_color; // use your own color here
 }
 
 .pagination > .active > a,
@@ -571,8 +584,8 @@ textarea {
 .pagination > .active > span,
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
-    background-color: #FD0E48;
-    border-color: #FD0E48;
+    background-color: $main_color;
+    border-color:$main_color;
 }
 
 
