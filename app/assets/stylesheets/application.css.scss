@@ -97,13 +97,21 @@ nav {
 
 }
 .jumbotron {
-	background-color: $backgroundBody;
+	background-color: #FFFFFF;
 	.h1{
 	color: $main_color ;
 }
 }
 
-
+.multilogo {
+	background-image: url('/images/multilogo.png');
+	img {
+		height: 10%;
+		width : 10%;
+		opacity: 0.4;
+		filter: alpha(opacity=40);
+	}
+}
 
 .search{
 	text-align:center;
@@ -196,8 +204,10 @@ nav {
 	  img {
 	  	
 	  	margin:0 -100%;
+	  	
 		vertical-align: middle;
 		height: 100%;
+
 		
 
 	  }
@@ -408,7 +418,9 @@ nav {
 	  img {
 	  	
 	  	margin:0 -100%;
+	  	display:inline-block;
 		vertical-align: middle;
+
 		height: 100%;
 
 	  }
