@@ -46,6 +46,8 @@ gem 'impressionist', '~> 1.5', '>= 1.5.1'
 
 gem 'friendly_id', '~> 5.1'
 
+gem 'google-analytics-rails', '~> 1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

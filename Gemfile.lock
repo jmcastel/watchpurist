@@ -92,6 +92,7 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    google-analytics-rails (1.0.0)
     haml (4.0.7)
       tilt
     hashie (3.4.3)
@@ -240,6 +241,7 @@ DEPENDENCIES
   devise (~> 3.5, >= 3.5.3)
   font-awesome-rails (~> 4.5)
   friendly_id (~> 5.1)
+  google-analytics-rails (~> 1.0)
   haml
   impressionist (~> 1.5, >= 1.5.1)
   jbuilder (~> 2.0)

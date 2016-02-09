@@ -89,5 +89,8 @@ Rails.application.configure do
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.default_url_options = {host: 'http://www.watchpurist.com'}
 
+# replace this with your tracker code
+GA.tracker = "UA-73536345-1"
+
 
 end
