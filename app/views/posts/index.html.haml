@@ -31,13 +31,13 @@
 				%br
 				%ul.menu
 					- @posts.aggs["brand"]["buckets"].each do |filter|
-						%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/posts?brand=#{filter["key"]}"
-						- if current_page?("/posts?brand=#{filter["key"]}")
+						%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/watch?brand=#{filter["key"]}"
+						- if current_page?("/watch?brand=#{filter["key"]}")
 							- if @posts.aggs["model"].present?
 								.h6 Models :
 								%ul.menu
 									- @posts.aggs["model"]["buckets"].each do |filter|
-										%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/posts?model=#{filter["key"]}"
+										%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/watch?model=#{filter["key"]}"
 										%br
 		%br
 									
