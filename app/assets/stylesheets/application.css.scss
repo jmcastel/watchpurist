@@ -367,7 +367,29 @@ nav {
 	
 
 
+@-moz-document url-prefix(){
+	body {
+	
 
+
+		.posts {
+    	.boxpost {
+    		img {
+    		display: table-cell;
+	  	
+	  		margin:0 -100%;
+	  	
+	  		position: relative;
+			vertical-align: middle;
+
+			height: 100%;
+    	}
+    	}
+    	
+    }
+    }
+    
+}
 
 
 
@@ -430,14 +452,17 @@ nav {
 	  }
 
 	  img {
-	  	
-	  	margin:0 -100%;
 	  	display:inline-block;
+	  	margin:0 -100%;
+	  	
+	  	position: relative;
 		vertical-align: middle;
 
 		height: 100%;
 
 	  }
+
+
 	  .title {
 	  	
 	  	a {
