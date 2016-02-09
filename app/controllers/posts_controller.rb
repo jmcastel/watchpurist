@@ -5,7 +5,9 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
-  def index
+ def index
+    @meta_title = 'Watchpurist : buy or sell luxury watches'
+
     @query = params.fetch(:q, "*").presence || "*"
     conditions = {}
     conditions[:brand] = params[:brand] if params[:brand].present?
@@ -21,12 +23,14 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     impressionist(@post)
+    @meta_title = "watch " + @post.brand + " model " + @post.model + " year " + @post.year
+    @meta_description = "watch " + @post.brand + " model " + @post.model + " year " + @post.year + " " + @post.description
   end
 
   # GET /posts/new
   def new
     @post = current_user.post.build
-    
+    @meta_title = "Sell a new watch"
   end
 
   # POST /posts

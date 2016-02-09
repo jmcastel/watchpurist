@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
 	searchkick word_start: [:title, :brand, :model]
 
 	extend FriendlyId
-    friendly_id :brand_and_model, use: :slugged
+    friendly_id :brand_and_model, use: [:slugged, :history]
 
 	is_impressionable
 
@@ -41,7 +41,12 @@ class Post < ActiveRecord::Base
 		end
 
 		def brand_and_model
-    		"#{brand} model #{model}"
+    		["#{brand}  #{model}",
+    			["#{brand}  #{model}  #{year}"],
+    			["#{brand}  #{model}  #{year}  #{dial}"],
+    			["#{brand}  #{model}  #{year}  #{dial} #{condition}"],
+    			["#{brand}  #{model}  #{year}  #{dial} #{condition} #{price}"]
+    		]
   		end
 
   		def should_generate_new_friendly_id?

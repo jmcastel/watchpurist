@@ -1,67 +1,80 @@
 !!! 5
 %html
-%head
-	%title Watchpurist
-	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
-	= javascript_include_tag 'application', 'data-turbolinks-track' => true
-	= csrf_meta_tags
-	%meta{:content => "width=device-width", :name => "viewport"}/
-	= analytics_init if GoogleAnalytics.valid_tracker?
-- unless controller_name == "hello"
-	%body
-		%nav.navbar.navbar-default
-			.container-fluid
-				.navbar-header
-					%button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
-						%span.icon-bar
-						%span.icon-bar
-						%span.icon-bar
-					.navbar-brand
-						.logo= link_to (image_tag  "/images/wp-logo.png") , root_path
+	%head
+		%title 
+		
+			- if  @meta_title.present?
+				=@meta_title
+			- else 
+				Watchpurist : buy or sell luxury watches
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+		%meta{:content => "width=device-width", :name => "viewport"}/
+		= analytics_init if GoogleAnalytics.valid_tracker?
 
-				- if user_signed_in?
-					#myNavbar.collapse.navbar-collapse
-						%ul.nav.navbar-nav.navbar-right
-							%li.nav-item.btn-group{ :data => { :behavior => "notifications", :notifications => (render template: "notifications/index", formats: [:json]) }}
-								%a#dropdownMenu1.dropdown-toggle.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-behavior" => "notifications-link", "data-toggle" => "dropdown", :type => "button"}
-									= fa_icon "bell"
+
+		- if @meta_description.present?
+			%meta{:name => "description", :content => truncate(@meta_description,:length => 110) }/
+
+		- else 
+			%meta{:name => "description", :content => "Watchpurist is the easiest way for buying or selling luxury watches. Just Signup and start trading with the world !" }/
+
+	- unless controller_name == "hello"
+		%body
+			%nav.navbar.navbar-default
+				.container-fluid
+					.navbar-header
+						%button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
+							%span.icon-bar
+							%span.icon-bar
+							%span.icon-bar
+						.navbar-brand
+							.logo= link_to (image_tag  "/images/wp-logo.png") , root_path
+
+					- if user_signed_in?
+						#myNavbar.collapse.navbar-collapse
+							%ul.nav.navbar-nav.navbar-right
+								%li.nav-item.btn-group{ :data => { :behavior => "notifications", :notifications => (render template: "notifications/index", formats: [:json]) }}
+									%a#dropdownMenu1.dropdown-toggle.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-behavior" => "notifications-link", "data-toggle" => "dropdown", :type => "button"}
+										= fa_icon "bell"
+										
+										%span.label.label-danger{"data-behavior" => "unread-count"} 
+									- if @notifications.present?
 									
-									%span.label.label-danger{"data-behavior" => "unread-count"} 
-								- if @notifications.present?
-								
-									.dropdown-menu{"aria-labelledby" => "dropdownMenu1", "data-behavior" => "notification-items"}
-								- else 
-									.dropdown-menu
-										%a No more news :(
-							%li= link_to "Sell a watch", new_post_path 
-							%li= link_to "Dashboard", dashboard_path
-							%li= link_to "Account", edit_user_registration_path
-							%li= link_to "Sign Out", destroy_user_session_path, method: :delete
-				- else
-					#myNavbar.collapse.navbar-collapse
-						%ul.nav.navbar-nav.navbar-right
-							%li= link_to "Sell a watch", new_user_session_path 
-							%li= link_to "Sign Up", new_user_registration_path 
-							%li= link_to "Sign In", new_user_session_path
-						
-.container
+										.dropdown-menu{"aria-labelledby" => "dropdownMenu1", "data-behavior" => "notification-items"}
+									- else 
+										.dropdown-menu
+											%a No more news :(
+								%li= link_to "Sell a watch", new_post_path 
+								%li= link_to "Dashboard", dashboard_path
+								%li= link_to "Account", edit_user_registration_path
+								%li= link_to "Sign Out", destroy_user_session_path, method: :delete
+					- else
+						#myNavbar.collapse.navbar-collapse
+							%ul.nav.navbar-nav.navbar-right
+								%li= link_to "Sell a watch", new_user_session_path 
+								%li= link_to "Sign Up", new_user_registration_path 
+								%li= link_to "Sign In", new_user_session_path
+							
+	.container
 
-	
-	- if flash[:notice] 
-		.alert.alert-success.alert-dismissible{:role => "alert"}
-			%button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-				%span{"aria-hidden" => "true"} ×
-				 
-			= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] 
-			
+		
+		- if flash[:notice] 
+			.alert.alert-success.alert-dismissible{:role => "alert"}
+				%button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+					%span{"aria-hidden" => "true"} ×
+					 
+				= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] 
+				
 
-	- if flash[:error] || flash[:alert]
-		.alert.alert-danger.alert-dismissible{:role => "alert"}
-			%button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-				%span{"aria-hidden" => "true"} ×
-			= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] 
-			= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
-= yield 
+		- if flash[:error] || flash[:alert]
+			.alert.alert-danger.alert-dismissible{:role => "alert"}
+				%button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+					%span{"aria-hidden" => "true"} ×
+				= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] 
+				= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
+	= yield 
 
 
 
