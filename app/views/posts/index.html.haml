@@ -15,10 +15,10 @@
 		- if @query == "*" 
 
 		- else 
-			%h3 Results for search : #{@query}
+			.h3.title Results for search : #{@query}
 			
 			%br
-			= link_to "Clear", root_path
+			= link_to "Clear", root_path, class: "btn btn-primary"
 
 	%br	
 	
