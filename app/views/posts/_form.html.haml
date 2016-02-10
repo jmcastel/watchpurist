@@ -63,8 +63,7 @@
     .form-group
       - if @post.image.present?
         = image_tag @post.image.url(:thumb)
-        = f.label :remove_image
-        = f.check_box :remove_image
+        
       %br
       
       = f.file_field :image

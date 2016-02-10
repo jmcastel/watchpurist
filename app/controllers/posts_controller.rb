@@ -23,6 +23,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    if request.path != post_path(@post)
+      return redirect_to @post, status => :moved_permanently
+    end
+
     impressionist(@post)
     @meta_title = "watch " + @post.brand + " model " + @post.model + " year " + @post.year
     @meta_description = "watch " + @post.brand + " model " + @post.model + " year " + @post.year + " " + @post.description
