@@ -30,7 +30,7 @@
 				.h4 Brands :
 				%br
 				%ul.menu
-					- @posts.aggs["brand"]["buckets"].each do |filter|
+					- @posts_alphabet.aggs["brand"]["buckets"].each do |filter|
 						%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/watch?brand=#{filter["key"]}"
 						- if current_page?("/watch?brand=#{filter["key"]}")
 							- if @posts.aggs["model"].present?

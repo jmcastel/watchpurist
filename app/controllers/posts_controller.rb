@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     conditions[:brand] = params[:brand] if params[:brand].present?
     conditions[:model] = params[:model] if params[:model].present?
     @posts = Post.search(@query, fields: [:title, :brand, :model], match: :word_start, operator: "or", order: {created_at: :desc} , where: conditions, aggs: [:brand,:model],page: params[:page], per_page: 10)
+    @posts_alphabet = Post.search(@query, fields: [:title, :brand, :model], match: :word_start, operator: "or", order: {created_at: :desc} , where: conditions, aggs: {brand: {order: {"_term" => "asc"}}},page: params[:page], per_page: 10) 
 
     #@posts = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 4)
   end
