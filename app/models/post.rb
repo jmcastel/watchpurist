@@ -41,11 +41,11 @@ class Post < ActiveRecord::Base
 		end
 
 		def brand_and_model
-    		["#{brand}  #{model}",
-    			["#{brand}  #{model}  #{year}"],
-    			["#{brand}  #{model}  #{year}  #{dial}"],
-    			["#{brand}  #{model}  #{year}  #{dial} #{condition}"],
-    			["#{brand}  #{model}  #{year}  #{dial} #{condition} #{price}"]
+    		["#{brand}  #{model} #{condition}",
+    			["#{brand}  #{model} #{condition} from #{year}"],
+    			["#{brand}  #{model} #{condition} from #{year}  #{price}"  ],
+    			["#{brand}  #{model} #{condition} from #{year}  #{price} #{currency}"],
+    			["#{brand}  #{model} #{condition} from #{year}  #{price} #{currency} #{dial}"]
     		]
   		end
 
@@ -58,7 +58,7 @@ class Post < ActiveRecord::Base
 
 	#monetize :price
 
-	validates :title, :brand, :model, :price, :currency, :year, presence: true
+	validates :title, :brand, :model, :price, :currency, :year, :condition, presence: true
 	validates :image, presence: true
 
 

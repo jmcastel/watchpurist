@@ -27,6 +27,12 @@
       = f.input :price,  input_html: { class: 'form-control',:inputmode => "numeric", :pattern => "[0-9]*", :type => "number"}
     .form-group  
       = f.input :currency, collection: [:USD, :EUR, :GBP]
+
+    .form-group
+      = f.input :condition, collection: [:new, :used], input_html: { class: 'form-control'}
+    %br
+    .title.h5 Optionnal :
+    
     .form-group
       = f.input :description, input_html: { class: 'form-control'}
 
@@ -34,8 +40,7 @@
     .form-group
       = f.input :availability, collection: [:now, :soon], input_html: { class: 'form-control'}
 
-    .form-group
-      = f.input :condition, collection: [:new, :used], input_html: { class: 'form-control'}
+    
 
     .form-group
       = f.input :location,  input_html: { class: 'form-control'}
@@ -57,12 +62,26 @@
 
     .form-group
       = f.input :functions,  input_html: { class: 'form-control'}
-
+    %br
   
   
     .form-group
+      
+      
       - if @post.image.present?
+        
+        %br
+        At least one image is needed, if you want to change the actual, just select a new one and clic update post.
+        %br
+        %br
+        Actual image :
+        %br
+        %br
         = image_tag @post.image.url(:thumb)
+        %br
+      
+      - else 
+        .title.h5 Fisrt image must be set !
         
       %br
       
