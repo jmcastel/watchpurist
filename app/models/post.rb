@@ -22,10 +22,12 @@ class Post < ActiveRecord::Base
 	attr_accessor :remove_image
 	attr_accessor :remove_image2
 	attr_accessor :remove_image3
+	attr_accessor :contact_us
 
 	before_save :delete_image, if: ->{ remove_image == '1' && !image_updated_at_changed? }
 	before_save :delete_image2, if: ->{ remove_image2 == '1' && !image2_updated_at_changed? }
 	before_save :delete_image3, if: ->{ remove_image3 == '1' && !image3_updated_at_changed? }
+	
 
   	private
 		def delete_image
@@ -39,6 +41,10 @@ class Post < ActiveRecord::Base
 		def delete_image3
 			self.image3 = nil
 		end
+
+		
+
+		#set friendly URL :
 
 		def brand_and_model
     		["#{brand}  #{model} #{condition}",
@@ -57,8 +63,10 @@ class Post < ActiveRecord::Base
 
 
 	#monetize :price
-
-	validates :title, :brand, :model, :price, :currency, :year, :condition, presence: true
+	
+	validates :title, :brand, :model, :year, :condition, presence: true 
+	validates_presence_of :currency,  if: :price?
+	
 	validates :image, presence: true
 
 

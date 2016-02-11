@@ -98,6 +98,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:remove_image, 
         :remove_image2, 
         :remove_image3 ,
+        :contact_us,
         :title, 
         :description, 
         :brand, 

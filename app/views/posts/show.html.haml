@@ -106,8 +106,11 @@
           %p.price
             %strong Price :
             %strong 
-            = @post.price
-            = @post.currency
+            - if @post.price.present?
+              = @post.price
+              = @post.currency
+            - else
+              Contact us.
         
         .panel-footer
           .row

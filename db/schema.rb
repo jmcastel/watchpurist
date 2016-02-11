@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205141750) do
+ActiveRecord::Schema.define(version: 20160211224602) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -62,43 +62,8 @@ ActiveRecord::Schema.define(version: 20160205141750) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "brand"
-    t.string   "model"
-    t.integer  "price"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "user_id"
-    t.string   "year"
-    t.string   "condition"
-    t.string   "location"
-    t.string   "shipping"
-    t.string   "movement"
-    t.string   "case"
-    t.string   "bracelet"
-    t.string   "dial"
-    t.text     "functions"
-    t.string   "availability"
-    t.string   "image2_file_name"
-    t.string   "image2_content_type"
-    t.integer  "image2_file_size"
-    t.datetime "image2_updated_at"
-    t.string   "image3_file_name"
-    t.string   "image3_content_type"
-    t.integer  "image3_file_size"
-    t.datetime "image3_updated_at"
-    t.string   "currency"
-    t.string   "slug"
-  end
-
-  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+# Could not dump table "posts" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "private_messages", force: :cascade do |t|
     t.string   "title"

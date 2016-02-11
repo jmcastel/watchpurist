@@ -14,7 +14,7 @@
       = f.input :title, input_html: { class: 'form-control',:maxlength => 40, :size => 40}
 
     .form-group
-      = f.input :brand,  collection: [:"A. Lange & Söhne", :"Alain Silberstein", :Apple, :"Audemars Piguet", :"Baume & Mercier", :"Bell & Ross", :Blancpain, :Boucheron, :Breguet , :Breitling, :"B.R.M" , :"Carlo Ferrara", :"Carls F.Bucherer",:Cartier, :Chaumet , :Chopard, :"De Bethune", :"De Grisogono", :Dewit, :Dior, :"Dolce & Gabana", :Eterna,:"F.P.Journe", :"Franck Muller", :"Frederique Constant", :"Girard Perregaux", :"Glashütte Original", :Gucci, :Guess, :"Gérald Genta", :Hamilton, :Hermès, :Hublot, :Ikepod, :IWC, :"Jacob & Co.",  :"Jaeger-LeCoultre", :"Jaquet-Droz", :JeanRichard, :"Laurent Ferrier", :"Linde Werdelin", :Lip, :Longines, :"Louis Vuitton", :Marcus , :Mauboussin, :"Maurice Lacroix", :"Mb&f", :"Michel Herbelin", :Montblanc, :"Mühle Glashütte",  :Omega,  :Panerai, :"Parmigiani Fleurier",  :"Patek Philippe", :Piaget ,:"Pierre Kunz", :"Raymond Weil", :"Richard Mille", :"Roger Dubuis",  :Rolex,  :"Romain Jerome", :"S.T Dupont", :"TAG Heuer", :Tissot, :Tudor, :"Ulysse Nardin",  :"Vacheron Constantin", :"Van Cleef & Arpels", :Vogard, :Vulcain,  ],input_html: { class: 'form-control'}
+      = f.input :brand,  collection: [:"A. Lange & Söhne", :"Alain Silberstein", :Apple, :"Audemars Piguet", :"Baume & Mercier", :"Bell & Ross", :Blancpain, :Boucheron, :Breguet , :Breitling, :"B.R.M" , :"Carlo Ferrara", :"Carls F.Bucherer",:Cartier, :Chaumet , :Chopard, :"De Bethune", :"De Grisogono", :Dewit, :Dior, :"Dolce & Gabana", :Eterna,:"F.P.Journe", :"Franck Muller", :"Frederique Constant", :"Girard Perregaux", :"Glashütte Original", :Gucci, :Guess, :"Gérald Genta", :Hamilton, :Hermès, :Hublot, :Ikepod, :IWC, :"Jacob & Co.",  :"Jaeger-LeCoultre", :"Jaquet-Droz", :JeanRichard, :"Laurent Ferrier", :"Linde Werdelin", :Lip, :Longines, :"Louis Vuitton", :Marcus , :Mauboussin, :"Maurice Lacroix", :"Mb&f", :"Michel Herbelin", :Montblanc, :"Mühle Glashütte",  :Omega,  :Panerai, :"Parmigiani Fleurier",  :"Patek Philippe", :Piaget ,:"Pierre Kunz", :"Raymond Weil", :"Richard Mille", :"Roger Dubuis",  :Rolex,  :"Romain Jerome", :"S.T Dupont", :"TAG Heuer", :Tissot, :Tudor, :"Ulysse Nardin",  :"Vacheron Constantin", :"Van Cleef & Arpels", :Vogard, :Vulcain, :Zénith ],input_html: { class: 'form-control'}
 
     .form-group
       = f.input :model, input_html: { class: 'form-control'}
@@ -23,15 +23,26 @@
     .form-group
       = f.input :year,  input_html: { class: 'form-control'} 
 
-    .form-group
-      = f.input :price,  input_html: { class: 'form-control',:inputmode => "numeric", :pattern => "[0-9]*", :type => "number"}
-    .form-group  
-      = f.input :currency, collection: [:USD, :EUR, :GBP]
+
 
     .form-group
       = f.input :condition, collection: [:new, :used], input_html: { class: 'form-control'}
     %br
     .title.h5 Optionnal :
+    %br
+
+    .form-group
+      = f.input :price,  input_html: { class: 'form-control',:inputmode => "numeric", :pattern => "[0-9]*", :type => "number"}
+    
+    .form-group  
+      = f.input :currency, collection: [:USD, :EUR, :GBP]
+    
+    Or 
+    %br
+    %br
+    .form-group
+      = f.label :"contact us"
+      = f.check_box :contact_us
     
     .form-group
       = f.input :description, input_html: { class: 'form-control'}
