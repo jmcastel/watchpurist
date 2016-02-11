@@ -273,12 +273,37 @@ nav {
 
 		.posts {
 			.boxpost {
+				.text {
+					font-size: 12px;
 
+				}
 				.price {
 				min-width: 60px;
 				
 				}
+				.title {
+	  	
+	  				a {
+				
+						font-size: 14px;
+				
+	  				}
+
+	  			}
+	  			.imgbox{
+	  				width: 80px;
+	  				height: 80px;
+	  				
+	  				-webkit-border-radius:40px;
+    				-moz-border-radius:40px;
+    				border-radius:40px;
+	  				
+	  				
+
+	  			}
+				
 			} 
+			
 		}
 			
 		
