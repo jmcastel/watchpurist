@@ -23,23 +23,36 @@
 	%br	
 	
 		
+
+									
+
 .container
 	.col-md-3
-		.filter
+		.panel.panel-default
 			- if @posts.aggs["brand"].present?
-				.h4 Brands :
+				.panel-heading Brands :
 				%br
-				%ul.menu
-					- @posts_alphabet.aggs["brand"]["buckets"].each do |filter|
-						%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/?brand=#{filter["key"]}"
-						- if current_page?("/?brand=#{filter["key"]}")
-							- if @posts.aggs["model"].present?
-								.h6 Models :
-								%ul.menu
-									- @posts.aggs["model"]["buckets"].each do |filter|
-										%li= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/?model=#{filter["key"]}"
-								%br
+				.panel-body
+					%ul.list-group
+						- @posts_alphabet.aggs["brand"]["buckets"].each do |filter|
+							%li.list-group-item= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/?brand=#{filter["key"]}"
+							- if current_page?("/?brand=#{filter["key"]}")
+								
+								- if @posts.aggs["model"].present?
+									.panel.panel-default
+									%br
+										.panel-heading Models :
+										.panel-body
+											%ul.list-group
+												- @posts.aggs["model"]["buckets"].each do |filter|
+													%li.list-group-item= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/?model=#{filter["key"]}"
+										%br
 		%br
+
+
+						
+						
+					
 									
 	.col-md-9.posts
 		

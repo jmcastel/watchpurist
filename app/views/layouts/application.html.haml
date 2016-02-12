@@ -2,7 +2,7 @@
 %html
 	%head
 		%title 
-		
+
 			- if  @meta_title.present?
 				=@meta_title
 			- else 
@@ -76,5 +76,10 @@
 				= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
 	= yield 
 
-
+	%br
+	%br
+	.footer.filter
+		contact us
+		Legal
+		
 
