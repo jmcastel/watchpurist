@@ -10,6 +10,30 @@
 	%br
 	= form_tag posts_path, method: :get do
 		= text_field_tag :q, nil, placeholder: "Search ...", class: "search"
+	%br
+
+	.col-md-12.visible-sm.visible-xs.browse
+		.title.h4.visible-xs.visible-sm or
+
+		.text-center.title.h3.dropdown 
+			%button#dropdownMenu1.btn.btn-success.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+				Select a brand
+				%span.caret
+			%ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+
+				- @posts_alphabet.aggs["brand"]["buckets"].each do |filter|
+					%li.list-group-item= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/?brand=#{filter["key"]}"
+					- if current_page?("/?brand=#{filter["key"]}")
+						
+						- if @posts.aggs["model"].present?
+							.panel.panel-default
+							%br
+								.panel-heading Models :
+								.panel-body
+									%ul.list-group
+										- @posts.aggs["model"]["buckets"].each do |filter|
+											%li.list-group-item= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/?model=#{filter["key"]}"
+								%br			
 		%br
 		%br
 		- if @query == "*" 
@@ -27,7 +51,7 @@
 									
 
 .container
-	.col-md-3
+	.col-md-3.hidden-sm.hidden-xs
 		.panel.panel-default
 			- if @posts.aggs["brand"].present?
 				.panel-heading Brands :
@@ -50,8 +74,7 @@
 		%br
 
 
-						
-						
+	
 					
 									
 	.col-md-9.posts

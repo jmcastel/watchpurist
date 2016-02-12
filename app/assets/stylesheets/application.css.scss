@@ -127,6 +127,15 @@ nav {
 	
 }
 
+.browse {
+	.dropdown-menu {
+  left: 50%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+}
+
 .search{
 	text-align:center;
 	border-color: #FD0E48;
