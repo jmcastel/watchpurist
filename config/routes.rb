@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   constraints(:host => /mighty-reef-1500.herokuapp.com/) do
     match '/(*path)' => redirect { |params, req|
       query_params = req.params.except(:path)
-      "http://www.watchpurist.com/#{params[:path]} #{query_params.keys.any? ? "?" + query_params.to_query : ""}", via: [:get, :post]
+      "http://www.watchpurist.com/#{params[:path]} #{query_params.keys.any? ? "?" + query_params.to_query : ""}"} , via: [:get, :post]
   end
 
 
