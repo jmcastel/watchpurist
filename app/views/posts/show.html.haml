@@ -149,34 +149,34 @@
         
   - if @post.user != current_user         
     
-      
-    .row
+    .container    
+      .row
 
-      %br
-      .title.h2.text-center Seller Info 
-      %br
-      %br  
-        
-      .boxpostuser.text-center.filter
-        
-        .row
-    
-          .col-sm-6.text-center
+        %br
+        .title.h2.text-center Seller Info 
+        %br
+        %br  
+          
+        .boxpostuser.text-center.filter
+          
+          .row
       
+            .col-sm-6.text-center
         
           
-            .avatar= image_tag  @post.user.avatar.url(:medium)
-
-          .col-sm-6
-            .h1.title= @post.user.pseudo 
             
-            %br
-            - if @post.user.address.present?
-              = @post.user.address
-            - else 
-              address not available
-      %br
-      %br      
+              .avatar= image_tag  @post.user.avatar.url(:medium)
+
+            .col-sm-6
+              .h1.title= @post.user.pseudo 
+              
+              %br
+              - if @post.user.address.present?
+                = @post.user.address
+              - else 
+                address not available
+        %br
+        %br      
 
 / - else
 /   .container
