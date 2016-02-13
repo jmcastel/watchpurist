@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+
+  #redirect the heroku version
   
+  constraints(:host => /mighty-reef-1500.herokuapp.com/) do
+    match "/(*path)" => redirect {|params, req| "//www.watchpurist.com/#{params[:path]}"},  via: [:get, :post]
+  end
+
+
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
