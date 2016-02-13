@@ -114,29 +114,39 @@
         
         .panel-footer
           .row
-            
-            .btn-group.pull-right
-              - if @post.user == current_user
-                = link_to "Edit", edit_post_path(@post), class: "btn btn-default"
-                = link_to 'Destroy' , @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
-              = link_to 'Back', 'javascript:history.go(-1);', class: "btn btn-default"
-              %br
+            - if @post.user != current_user 
+        
+              .col-xs-6
+                
+                .text-center
+                  = link_to "contact seller", new_post_private_message_path(@post.friendly_id), class: "btn btn-success center-block"
+        
+            .col-xs-6
+              .btn-group.pull-right
+                - if @post.user == current_user
+                  = link_to "Edit", edit_post_path(@post), class: "btn btn-default"
+                  = link_to 'Destroy' , @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+                = link_to 'Back', 'javascript:history.go(-1);', class: "btn btn-default"
+                %br
         
       %br
       %br
 
-      - if @post.user != current_user 
-        .row
-          .panel.panel-default
-            .panel-body
-              .text-center
-                = link_to "contact seller", new_post_private_message_path(@post.friendly_id), class: "btn btn-success center-block"
-
-     
-        
-- if @post.user != current_user         
-  .container
+      
     
+      .share.col-md-6.text-center
+        .col-xs-4
+
+          = pin_it_button  media: @post.image.url(:large), description: @post.title
+        
+        .col-xs-4
+          = twitter_share_button
+        .col-xs-4 
+          = google_plus_button size: 'medium', annotation: 'none'
+        
+  - if @post.user != current_user         
+    
+      
     .row
 
       %br
