@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     get 'users/:id',      to: 'users#show',    as: :single_user
   end
 
-
+  get 'cgu' => 'cgu#index'
+  get 'about-us' => 'about_us#index'
+  get 'contact-us' => 'contact#index'
 
   #resources :posts ,path: 'watch', only: [:new, :edit]
 
