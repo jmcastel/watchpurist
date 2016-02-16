@@ -17,6 +17,7 @@
 //= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require cocoon
+//= require social_buttons
 
 
 //= require_tree .

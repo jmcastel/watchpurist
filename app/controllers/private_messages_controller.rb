@@ -9,17 +9,25 @@ class PrivateMessagesController < ApplicationController
 	def index
 		@privatemessages = PrivateMessage.where(user_id: current_user).order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
 		@posts = Post.all
+		@meta_title = "All Private Messages"
+		@meta_description = "Find all your private messages"
 		
 	end
 
 	def new
 		@privatemessage = PrivateMessage.new
+		@meta_title = "New Private Messages"
+		@meta_description = "Send a new private message to a watch seller"
 	end
 
 	def show
 		@posts = Post.all
 		@post = Post.where(id: @privatemessage.post_id)
 		@privatemessage.readingmessage
+
+		@meta_title = "Private Message"
+		@meta_description = "Detail of a private message"
+
 	end
 
 	def create 

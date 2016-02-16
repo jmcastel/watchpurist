@@ -110,8 +110,11 @@
 					.col-xs-4.col-sm-4
 						.price
 							%br.hidden-sm.hidden-md.hidden-lg
-							= post.price
-							= post.currency
+								- if post.price.present?
+									= post.price
+									= post.currency
+								- else 
+									contact us
 							%br
 							%br
 							.hidden-xs= link_to "More details" , post , class: "btn btn-primary"
@@ -121,7 +124,7 @@
 							%br.hidden-xs
 							%br.hidden-xs
 
-		= will_paginate @posts , renderer: BootstrapPagination::Rails
+		= will_paginate @posts , renderer: BootstrapPagination::Rails,inner_window: 3, outter_window: 1
 					
 						
 						
