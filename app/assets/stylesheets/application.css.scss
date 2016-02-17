@@ -36,6 +36,9 @@ $main_color : #FD0E48;
 
 body {
 	background: $backgroundBody;
+	height: 100%;
+
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -128,16 +131,25 @@ nav {
 	
 }
 
+
+#wrap {
+        min-height: 100%;
+         height: auto !important;
+        height: 100%;
+
+      }
+
 .footer {
 	background-color: #CCCCCC;
 	color : $main_color;
 	padding: 60px;
 	width: 100%;
 
+	
 	a {
 		color : $main_color;
 	}
-
+	
 
 }
 

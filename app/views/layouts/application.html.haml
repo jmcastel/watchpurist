@@ -73,23 +73,26 @@
 				%button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
 					%span{"aria-hidden" => "true"} ×
 				= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] 
+	
 				= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
-	= yield 
+	#wrap		
+		= yield 
 
 	%br
 	%br
 	
+
 	.footer.text-center
 		.col-sm-4
-			= link_to  'Contact us' , cgu_path
+			= link_to  'About watchpurist' , about_us_path
 			%br
 			%br
 		.col-sm-4
-			CGU
+			= link_to  'Terms and conditions' , cgu_path
 			%br
 			%br
 		.col-sm-4
-			About us	
+			= link_to  'Contact us' , contact_us_path	
 			
 			%br
 		%br

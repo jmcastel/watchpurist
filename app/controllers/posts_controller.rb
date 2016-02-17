@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     end
 
     impressionist(@post)
-    @meta_title = "watch " + @post.brand + " model " + @post.model + " year " + @post.year
+    @meta_title =  @post.brand + @post.model 
     @meta_description = "watch " + @post.brand + " model " + @post.model + " year " + @post.year + " " + @post.description
   end
 
