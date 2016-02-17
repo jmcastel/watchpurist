@@ -75,14 +75,14 @@
 				= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] 
 	
 				= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] 
-	#wrap		
-		= yield 
+			
+	= yield 
 
 	%br
 	%br
 	
 
-	.footer.text-center
+	#footer.text-center
 		.col-sm-4
 			= link_to  'About watchpurist' , about_us_path
 			%br
@@ -93,7 +93,7 @@
 			%br
 		.col-sm-4
 			= link_to  'Contact us' , contact_us_path	
-			
-			%br
-		%br
+		
+		
+	
 

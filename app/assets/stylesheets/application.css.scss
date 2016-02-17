@@ -139,11 +139,14 @@ nav {
 
       }
 
-.footer {
-	background-color: #CCCCCC;
-	color : $main_color;
-	padding: 60px;
-	width: 100%;
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   
+   background:#ffffff;
+   padding: 60px;
+
 
 	
 	a {
