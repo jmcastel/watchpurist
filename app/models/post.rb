@@ -47,11 +47,11 @@ class Post < ActiveRecord::Base
 		#set friendly URL :
 
 		def brand_and_model
-    		["#{brand}  #{model} #{condition}",
-    			["#{brand}  #{model} #{condition} from #{year}"],
-    			["#{brand}  #{model} #{condition} from #{year}  #{price}"  ],
-    			["#{brand}  #{model} #{condition} from #{year}  #{price} #{currency}"],
-    			["#{brand}  #{model} #{condition} from #{year}  #{price} #{currency} #{dial}"]
+    		["#{title} ",
+    			["#{title} #{condition} from #{year}"],
+    			["#{title} #{condition} from #{year}  #{price}"  ],
+    			["#{title} #{condition} from #{year}  #{price} #{currency}"],
+    			["#{title} #{condition} from #{year}  #{price} #{currency} #{dial}"]
     		]
   		end
 
