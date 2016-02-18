@@ -103,9 +103,14 @@
 							.title= link_to post.title , post
 							= post.brand
 							%br
-							= post.model
+							.hidden-sm.hidden-md.hidden-lg
+								#{truncate(post.model, :length => 17)}
+							.hidden-xs
+								= post.model
 							%br
 							= post.year
+
+
 
 					.col-xs-4.col-sm-4
 						.price
