@@ -22,8 +22,8 @@ class PostsController < ApplicationController
       @meta_description = "Latest watches available on watchpurist"
     end
 
-    @posts = Post.search(@query, fields: [:title, :brand, :model], match: :word_start, operator: "or", order: {created_at: :desc} , where: conditions, aggs: [:brand,:model],page: params[:page], per_page: 16)
-    @posts_alphabet = Post.search(@query, fields: [:title, :brand, :model], match: :word_start, operator: "or", order: {created_at: :desc} , where: conditions, aggs: {brand: {order: {"_term" => "asc"}}},page: params[:page], per_page: 16) 
+    @posts = Post.search(@query, fields: [:title, :brand, :model], match: :word_start,  order: {created_at: :desc} , where: conditions, aggs: [:brand,:model],page: params[:page], per_page: 16)
+    @posts_alphabet = Post.search(@query, fields: [:title, :brand, :model], match: :word_start, order: {created_at: :desc} , where: conditions, aggs: {brand: {order: {"_term" => "asc"}}},page: params[:page], per_page: 16) 
 
     #@posts = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 4)
   end

@@ -1,6 +1,10 @@
 class Post < ActiveRecord::Base
 
-	searchkick word_start: [:title, :brand, :model]
+	searchkick word_start: [ :title, :brand, :model]
+
+	
+
+
 
 	extend FriendlyId
     friendly_id :brand_and_model, use: [:slugged, :history]
@@ -56,8 +60,11 @@ class Post < ActiveRecord::Base
   		end
 
   		def should_generate_new_friendly_id?
-    		brand_changed? || model_changed? || super
+    		title_changed? || condition_changed? || year_changed? || price_changed? || currency_changed? || super
   		end
+
+  		
+		
 
 
 
