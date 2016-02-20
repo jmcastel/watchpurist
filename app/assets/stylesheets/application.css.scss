@@ -325,7 +325,8 @@ nav {
 			.boxpost {
 				.text {
 					font-size: 12px;
-
+					overflow: hidden;
+					text-overflow: ellipsis;
 				}
 				.price {
 				min-width: 60px;
