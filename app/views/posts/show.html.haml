@@ -24,13 +24,13 @@
           
           - if @post.image.present?
             .item.active.post_image
-              = image_tag @post.image.url(:large)
+              = image_tag @post.image.url(:large), alt: @post.brand + " " + @post.model  + "first image"      
           - if @post.image2.present?
             .item.post_image
-              = image_tag @post.image2.url(:large)
+              = image_tag @post.image2.url(:large) , alt: @post.brand + " " + @post.model  + "second image"
           - if @post.image3.present?
             .item.post_image
-              = image_tag @post.image3.url(:large)
+              = image_tag @post.image3.url(:large) , alt: @post.brand + " " + @post.model  + "third image"
         / Left and right controls
         - if @post.image2.present? || @post.image3.present?
           %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}

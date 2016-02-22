@@ -142,21 +142,15 @@ nav {
 }
 
 
-#wrap {
-        min-height: 100%;
-         height: auto !important;
-        height: 100%;
 
-      }
 
-#footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
+.footer {
+      width:100%;
    
    background:#ffffff;
    padding: 60px;
-
+	
+	bottom:0;
 
 	
 	a {
