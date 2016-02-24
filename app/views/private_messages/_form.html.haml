@@ -1,13 +1,20 @@
 = simple_form_for [@post,@privatemessage] do |f|
   
+	- if user_signed_in?
+		.form-group
+			= f.input :title, input_html: { class: 'form-control'}
+		.form-group
+			= f.input :content, input_html: { class: 'form-control'}
+	- else
+		.form-group
+			= f.input :title, input_html: { class: 'form-control'}
 
-  .form-group
-    = f.input :title, input_html: { class: 'form-control'}
+		.form-group
+			= f.input :content, input_html: { class: 'form-control'}
 
-  .form-group
-    = f.input :content, input_html: { class: 'form-control'}
+			= f.input :email , input_html: { class: 'form-control'}
 
   
-  = f.button :submit, class: "btn btn-primary", data: { disable_with: "Please wait..." }
+	= f.button :submit,'Send !', class: "btn btn-success", data: { disable_with: "Please wait..." }
   
 

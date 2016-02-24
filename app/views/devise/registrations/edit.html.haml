@@ -1,76 +1,77 @@
-.col-md-6.col-md-offset-3
-  .filter
-    .title.h1
-      Edit my account
+.container
+  .col-md-6.col-md-offset-3
+    .filter
+      .title.h1
+        Edit my account
+        %br
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
+        .field
+          
+          
+          = f.input :email, autofocus: true
+          %br
+        .field
+          
+         
+          = f.input :pseudo, autofocus: true
+          %br
+
+        .field
+          
+          
+          = f.input :address, autofocus: true
+          %br
+
+        .field
+          
+         
+          = f.input :phone, autofocus: true
+          %br
+
+
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .field
+          
+          = f.input :avatar
+          %br
+        - if @user.avatar.present?
+          = image_tag @user.avatar.url(:thumb)
+          = f.label :remove_avatar
+          = f.check_box :remove_avatar
+        %br
+        %br
+          
+        .actions
+          = f.submit "Update", class:"btn btn-primary", data: { disable_with: "Please wait..." }
       %br
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      = devise_error_messages!
-      .field
-        
-        
-        = f.input :email, autofocus: true
-        %br
-      .field
-        
-       
-        = f.input :pseudo, autofocus: true
-        %br
-
-      .field
-        
-        
-        = f.input :address, autofocus: true
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |p|
+        = devise_error_messages!
+        .field
+          .title.h1 Change your password :
+          = p.label :password
+          %i (leave blank if you don't want to change it)
+          %br/
+          = p.password_field :password, autocomplete: "off"
+        .field
+          = p.label :password_confirmation
+          %br/
+          = p.password_field :password_confirmation, autocomplete: "off"
         %br
 
-      .field
+          
+        .actions
+          = p.submit "Update", class:"btn btn-primary", data: { disable_with: "Please wait..." }
         
-       
-        = f.input :phone, autofocus: true
-        %br
-
-
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %div
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
-      .field
         
-        = f.input :avatar
-        %br
-      - if @user.avatar.present?
-        = image_tag @user.avatar.url(:thumb)
-        = f.label :remove_avatar
-        = f.check_box :remove_avatar
-      %br
-      %br
-        
-      .actions
-        = f.submit "Update", class:"btn btn-primary", data: { disable_with: "Please wait..." }
-    %br
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |p|
-      = devise_error_messages!
-      .field
-        .title.h1 Change your password :
-        = p.label :password
-        %i (leave blank if you don't want to change it)
-        %br/
-        = p.password_field :password, autocomplete: "off"
-      .field
-        = p.label :password_confirmation
-        %br/
-        = p.password_field :password_confirmation, autocomplete: "off"
-      %br
 
         
-      .actions
-        = p.submit "Update", class:"btn btn-primary", data: { disable_with: "Please wait..." }
-      
-      
-
-      
 
 
-  .filter  
-    .title Unhappy? Cancel my account
-    %p
-    #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+    .filter  
+      .title Unhappy? Cancel my account
+      %p
+      #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
 

@@ -1,26 +1,26 @@
+.container
 
 
+  .col-md-6.col-md-offset-3
+    .well
+      %h2 Log In
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = devise_error_messages!
 
-.col-md-6.col-md-offset-3
-  .well
-    %h2 Log In
-    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      = devise_error_messages!
+        .form-group
+          = f.input :email, input_html: { class: 'form-control'}
 
-      .form-group
-        = f.input :email, input_html: { class: 'form-control'}
-
-      .form-group
-        = f.input :password,  input_html: { autocomplete: "off", class: 'form-control'}
+        .form-group
+          = f.input :password,  input_html: { autocomplete: "off", class: 'form-control'}
+            
+        .form-group
+          Remember me 
+          = f.check_box :remember_me
+            
           
-      .form-group
-        Remember me 
-        = f.check_box :remember_me
-          
-        
 
 
-      = f.button :submit, "Log In", class: "btn btn-primary"
-      %br
+        = f.button :submit, "Log In", class: "btn btn-primary"
+        %br
 
-      = render "devise/shared/links" 
+        = render "devise/shared/links" 

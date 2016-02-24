@@ -1,6 +1,6 @@
 class PrivateMessagesController < ApplicationController
 
-	before_action :authenticate_user!
+	#before_action :authenticate_user!
 	before_action :set_message, only: [:show, :edit, :update, :destroy]
 	before_action :set_post , only: [:new, :create]
 	before_action :mark_as_read 
@@ -32,12 +32,17 @@ class PrivateMessagesController < ApplicationController
 
 	def create 
 		@privatemessage = PrivateMessage.new(private_message_params)
-		
+		if user_signed_in?
+			@privatemessage.from_user = current_user.id
+			@privatemessage.email = current_user.email
+		else
+		end
+
+
 		@privatemessage.post_id = @post.id
 
 		@privatemessage.user_id = @post.user_id
-		@privatemessage.from_user = current_user.id
-		@privatemessage.email = current_user.email
+		
 		@privatemessage.poster_email = @post.user.email 
 		@privatemessage.pseudo = @post.user.pseudo
 		@privatemessage.post_title = @post.title 
@@ -72,7 +77,7 @@ class PrivateMessagesController < ApplicationController
 
 		
 		def private_message_params
-      		params[:private_message].permit(:title, :content, :post_id, :user_id)
+      		params[:private_message].permit(:title, :content,:email, :post_id, :user_id)
 
     	end
 

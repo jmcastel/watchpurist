@@ -1,6 +1,10 @@
 json.array! @notifications do |notification|
 	#json.recipient notification.recipient
-	json.actor notification.actor.pseudo
+	if notification.actor.present?
+		json.actor notification.actor.pseudo
+	else 
+		json.actor "someone"
+	end
 	json.action notification.action
 	json.notifiable notification.notifiable
 	json.url messages_path
