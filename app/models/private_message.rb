@@ -15,4 +15,8 @@ class PrivateMessage < ActiveRecord::Base
   		save
 	end
 
+	 
+	validates :title, :content, :email, presence: true 
+
+
 end
